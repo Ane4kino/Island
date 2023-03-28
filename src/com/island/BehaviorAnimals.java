@@ -66,13 +66,13 @@ public class BehaviorAnimals {
 
         for (int i = 0; i < createAnimals().size(); i++) {
             if (setRandomMove().equals(LEFT))
-                createAnimals().get(i).positionX() = createAnimals().get(i).positionX() - 1;
+                createAnimals().get(i).positionX() = createAnimals().get(i).positionX() - createAnimals().get(i).getMovement();
             else if (setRandomMove().equals(RIGHT))
-                createAnimals().get(i).positionX() = createAnimals().get(i).positionX() + 1;
+                createAnimals().get(i).positionX() = createAnimals().get(i).positionX() + createAnimals().get(i).getMovement();
             else if (setRandomMove().equals(UP))
-                createAnimals().get(i).positionY() = createAnimals().get(i).positionY() + 1;
+                createAnimals().get(i).positionY() = createAnimals().get(i).positionY() + createAnimals().get(i).getMovement();
             else if (setRandomMove().equals(DOWN))
-                createAnimals().get(i).positionY() = createAnimals().get(i).positionY() - 1;
+                createAnimals().get(i).positionY() = createAnimals().get(i).positionY() - createAnimals().get(i).getMovement();
         }return listOfAllAnimals;
     }
 }

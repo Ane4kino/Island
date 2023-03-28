@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Island.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/Actions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/Animals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/BehaviorAnimals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/animals/Fox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/animals/Horse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/animals/Mouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/animals/Wolf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/frame/Direction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/frame/Sign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" afterDir="false" />
-    </list>
+    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="27_03_23" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,6 +75,18 @@
       <option name="presentableId" value="Default" />
       <updated>1679562522650</updated>
     </task>
+    <task id="LOCAL-00001" summary="27_03_23">
+      <created>1679944632003</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679944632003</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="27_03_23" />
+    <option name="LAST_COMMIT_MESSAGE" value="27_03_23" />
   </component>
 </project>
