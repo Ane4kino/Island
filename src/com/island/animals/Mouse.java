@@ -2,15 +2,13 @@ package com.island.animals;
 
 import com.island.AnimalTypeEnum;
 import com.island.Animals;
-import com.island.frame.Sign;
 
 import static com.island.AnimalTypeEnum.*;
 import static com.island.Constants.*;
 import static com.island.frame.StartPosition.randomStart;
-
 public class Mouse extends Animals {
 
-    public Mouse(int weightMouse, int maxNumberMouse, int speedMouse, int ateMouse) {
+    public Mouse(int x, int y) {
 
     }
 

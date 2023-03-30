@@ -1,11 +1,9 @@
 package com.island.frame;
 
-import com.island.*;
+import com.island.Animals;
+import com.island.Constants;
 
 import java.util.Random;
-
-import static com.island.BehaviorAnimals.createAnimals;
-import static com.island.Constants.*;
 
 public class StartPosition {
     public static String[][] field = new String[Constants.WIDTH][Constants.HEIGHT];
@@ -17,18 +15,6 @@ public class StartPosition {
                 field[i][j] = ".";
             }
         }
-    }
-
-    public static String[][] startPosition(Animals listOfAllAnimals) {
-        for (int k = 0; k < listOfAllAnimals.getReproduce(); k++) {
-            getPosition(listOfAllAnimals);
-        }
-        return field;
-    }
-
-    public static String[][] getPosition(Animals listOfAllAnimals) {
-        field[listOfAllAnimals.positionX()][listOfAllAnimals.positionY()] = listOfAllAnimals.getSymbol();
-        return field;
     }
 
     public static void printRow(String[] field) {

@@ -3,15 +3,13 @@ package com.island.animals;
 import com.island.AnimalTypeEnum;
 import com.island.Animals;
 
-import java.util.List;
-
 import static com.island.AnimalTypeEnum.*;
 import static com.island.Constants.*;
 import static com.island.frame.StartPosition.randomStart;
 
 public class Wolf extends Animals {
 
-    public Wolf(int weightAnimals, int maxNumberAnimals, int speed, int ateAnimals) {
+    public Wolf(int x, int y) {
     }
     @Override
     public String getSymbol() {

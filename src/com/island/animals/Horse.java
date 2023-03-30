@@ -9,7 +9,8 @@ import static com.island.frame.StartPosition.randomStart;
 
 public class Horse extends Animals {
 
-    public Horse(int weightHorse, int maxNumberHorse, int speedHorse, int ateHorse) {
+    public Horse(int x, int y) {
+
     }
 
     @Override

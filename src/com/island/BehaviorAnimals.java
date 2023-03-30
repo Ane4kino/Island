@@ -3,16 +3,18 @@ package com.island;
 import com.island.frame.Direction;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.island.AnimalTypeEnum.*;
 import static com.island.AnimalTypeEnum.MOUSE;
 import static com.island.frame.Direction.*;
+import static com.island.frame.StartPosition.field;
 
 public class BehaviorAnimals {
     private Direction direction = Direction.LEFT;
 
-    public static List<Animals> createAnimals() {
+    public static List<Animals> createListAnimals() {
         AnimalFactory factory = new AnimalFactory();
         Animals fox = factory.createAnimal(FOX);
         Animals wolf = factory.createAnimal(WOLF);
@@ -25,6 +27,22 @@ public class BehaviorAnimals {
         listOfAllAnimals.add(horse);
         listOfAllAnimals.add(mouse);
         return listOfAllAnimals;
+    }
+
+    public static HashMap<AnimalTypeEnum, Integer> countingAnimals() {
+        HashMap<AnimalTypeEnum, Integer> countingAnimalsMap = new HashMap<>();
+        int numberAnimals = 0;
+      //  for (int k = 0; k < createListAnimals().size(); k++) {
+            for (int i = 0; i < Constants.WIDTH; i++) {
+                for (int j = 0; j < Constants.HEIGHT; j++) {
+
+                    if (field[i][j].equals(createListAnimals().get(i).getSymbol())) {
+                        countingAnimalsMap.put(createListAnimals().get(i).getType(), numberAnimals++);
+                    }
+                }
+            }
+       // }
+        return countingAnimalsMap;
     }
 
 //    public void setDirection(Direction direction) {
@@ -62,18 +80,19 @@ public class BehaviorAnimals {
         return key;
     }
 
-    public static Animals setMove(Animals listOfAllAnimals) {
-
-        for (int i = 0; i < createAnimals().size(); i++) {
-            if (setRandomMove().equals(LEFT))
-                createAnimals().get(i).positionX() = createAnimals().get(i).positionX() - createAnimals().get(i).getMovement();
-            else if (setRandomMove().equals(RIGHT))
-                createAnimals().get(i).positionX() = createAnimals().get(i).positionX() + createAnimals().get(i).getMovement();
-            else if (setRandomMove().equals(UP))
-                createAnimals().get(i).positionY() = createAnimals().get(i).positionY() + createAnimals().get(i).getMovement();
-            else if (setRandomMove().equals(DOWN))
-                createAnimals().get(i).positionY() = createAnimals().get(i).positionY() - createAnimals().get(i).getMovement();
-        }return listOfAllAnimals;
-    }
+//    public static Animals setMove(Animals listOfAllAnimals) {
+//
+//        for (int i = 0; i < createListAnimals().size(); i++) {
+//
+//            if (setRandomMove().equals(LEFT))
+//                listOfAllAnimals.setX(this) = createListAnimals().get(i).getX() - createListAnimals().get(i).getMovement();
+//            else if (setRandomMove().equals(RIGHT))
+//                listOfAllAnimals.setX() = createListAnimals().get(i).getX() + createListAnimals().get(i).getMovement();
+//            else if (setRandomMove().equals(UP))
+//                listOfAllAnimals.setY() = createListAnimals().get(i).getY() + createListAnimals().get(i).getMovement();
+//            else if (setRandomMove().equals(DOWN))
+//                listOfAllAnimals.setY() = createListAnimals().get(i).getY() - createListAnimals().get(i).getMovement();
+//        }return listOfAllAnimals;
+//    }
 }
 

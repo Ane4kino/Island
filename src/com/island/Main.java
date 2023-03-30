@@ -1,23 +1,27 @@
 package com.island;
 
+import java.util.Map;
+import java.util.Set;
+
 import static com.island.BehaviorAnimals.*;
 import static com.island.frame.StartPosition.*;
-
 
 
 public class Main {
     public static void main(String[] args) {
         startField();
-
-        for (int i = 0; i < createAnimals().size(); i++) {
-            startPosition(createAnimals().get(i));
-          // setMove(createAnimals().get(i));
+        createListAnimals();
+        Set<Map.Entry<AnimalTypeEnum, Integer>> entries = countingAnimals().entrySet();
+        for (Map.Entry<AnimalTypeEnum, Integer> pair : entries) {
+            AnimalTypeEnum key = pair.getKey();
+            Integer value = pair.getValue();
+            System.out.println("На поле сейчас: " + value + "объектов под видом " + key);
         }
+
 
         for (String[] row : field) {
             printRow(row);
-
-
+        }
 
 //        JFrame frame = new JFrame();
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,6 +30,6 @@ public class Main {
 //        frame.add(new Frame(frame));
 //        frame.setVisible(true);
 
-        }
+
     }
 }

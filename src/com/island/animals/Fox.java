@@ -7,7 +7,7 @@ import static com.island.Constants.*;
 import static com.island.frame.StartPosition.randomStart;
 
 public class Fox extends Animals {
-    public Fox(int weightAnimals, int maxNumberAnimals, int speed, int ateAnimals) {
+    public Fox(int x,int y) {
     }
 
     @Override

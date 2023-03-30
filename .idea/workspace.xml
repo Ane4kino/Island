@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="27_03_23" />
+    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="27_03_23">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Actions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/Animals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Animals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/BehaviorAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BehaviorAnimals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/animals/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Fox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/animals/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Horse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/animals/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/animals/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Wolf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,14 +45,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Console Font&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.island" />
@@ -82,8 +94,87 @@
       <option name="project" value="LOCAL" />
       <updated>1679944632003</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="27_03_23">
+      <created>1679983885153</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679983885153</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="61a475d9-579a-4009-aa65-23f59a144c38">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="8cd33348-3b2a-458c-9118-8b923ada0b22">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="27_03_23" />

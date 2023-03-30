@@ -1,8 +1,10 @@
 package com.island;
 
 import com.island.animals.*;
-import static com.island.Constants.*;
 
+import static com.island.Constants.*;
+import static com.island.frame.StartPosition.field;
+import static com.island.frame.StartPosition.randomStart;
 
 
 public class AnimalFactory {
@@ -10,16 +12,37 @@ public class AnimalFactory {
         Animals animal = null;
         switch (type) {
             case FOX:
-                animal = new Fox(WEIGHT_FOX, MAX_NUMBER_FOX, SPEED_FOX, ATE_FOX);
+                for (int i = 0; i < AMT_FOX_CUB; i++) {
+                    int x = randomStart.nextInt(WIDTH);
+                    int y = randomStart.nextInt(HEIGHT);
+                    animal = new Fox(x, y);
+                    field[x][y] = animal.getSymbol();
+
+                }
                 break;
             case WOLF:
-                animal = new Wolf(WEIGHT_WOLF, MAX_NUMBER_WOLF, SPEED_WOLF, ATE_WOLF);
+                for (int i = 0; i < AMT_WOLF_CUB; i++) {
+                    int x = randomStart.nextInt(WIDTH);
+                    int y = randomStart.nextInt(HEIGHT);
+                    animal = new Wolf(x, y);
+                    field[x][y] = animal.getSymbol();
+                }
                 break;
             case HORSE:
-                animal = new Horse(WEIGHT_HORSE, MAX_NUMBER_HORSE, SPEED_HORSE, ATE_HORSE);
+                for (int i = 0; i < AMT_HORSE_CUB; i++) {
+                    int x = randomStart.nextInt(WIDTH);
+                    int y = randomStart.nextInt(HEIGHT);
+                    animal = new Horse(x, y);
+                    field[x][y] = animal.getSymbol();
+                }
                 break;
             case MOUSE:
-                animal = new Mouse(WEIGHT_MOUSE, MAX_NUMBER_MOUSE, SPEED_MOUSE, ATE_MOUSE);
+                for (int i = 0; i < AMT_MOUSE_CUB; i++) {
+                    int x = randomStart.nextInt(WIDTH);
+                    int y = randomStart.nextInt(HEIGHT);
+                    animal = new Mouse(x, y);
+                    field[x][y] = animal.getSymbol();
+                }
                 break;
         }
         return animal;

@@ -1,11 +1,5 @@
 package com.island;
 
-import java.util.List;
-
-import static com.island.Constants.HEIGHT;
-import static com.island.Constants.WIDTH;
-import static com.island.frame.StartPosition.randomStart;
-
 public class Actions {
 
     public interface Movement {
