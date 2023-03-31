@@ -8,6 +8,7 @@ import static com.island.frame.StartPosition.randomStart;
 
 public class Fox extends Animals {
     public Fox(int x,int y) {
+        super(x,y);
     }
 
     @Override
@@ -21,7 +22,7 @@ public class Fox extends Animals {
     }
 
     @Override
-    public int getMovement() {
+    public int getMovementRange() {
         return 2;
     }
 

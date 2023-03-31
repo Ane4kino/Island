@@ -10,6 +10,7 @@ import static com.island.frame.StartPosition.randomStart;
 public class Horse extends Animals {
 
     public Horse(int x, int y) {
+        super(x,y);
 
     }
 
@@ -24,7 +25,7 @@ public class Horse extends Animals {
     }
 
     @Override
-    public int getMovement() {
+    public int getMovementRange() {
         return 4;
     }
 

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="27_03_23">
+    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="30_03_23">
+      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalPosition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Actions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" afterDir="false" />
@@ -15,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/src/com/island/animals/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Horse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/animals/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Mouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/animals/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Wolf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/frame/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,8 +104,26 @@
       <option name="project" value="LOCAL" />
       <updated>1679983885153</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="30_03_23">
+      <created>1680165382399</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680165382399</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -178,6 +199,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="27_03_23" />
-    <option name="LAST_COMMIT_MESSAGE" value="27_03_23" />
+    <MESSAGE value="30_03_23" />
+    <option name="LAST_COMMIT_MESSAGE" value="30_03_23" />
   </component>
 </project>

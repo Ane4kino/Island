@@ -9,6 +9,7 @@ import static com.island.frame.StartPosition.randomStart;
 public class Mouse extends Animals {
 
     public Mouse(int x, int y) {
+        super(x,y);
 
     }
 
@@ -23,7 +24,7 @@ public class Mouse extends Animals {
     }
 
     @Override
-    public int getMovement() {
+    public int getMovementRange() {
         return 1;
     }
 

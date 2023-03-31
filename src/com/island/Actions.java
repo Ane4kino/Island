@@ -2,8 +2,8 @@ package com.island;
 
 public class Actions {
 
-    public interface Movement {
-        int getMovement();
+    public interface Movable  {
+        int getMovementRange();
     }
 
     public interface PositionAnimals {

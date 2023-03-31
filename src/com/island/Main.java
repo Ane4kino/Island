@@ -1,8 +1,11 @@
 package com.island;
 
+import com.island.animals.Fox;
+
 import java.util.Map;
 import java.util.Set;
 
+import static com.island.AnimalFactory.createAnimal;
 import static com.island.BehaviorAnimals.*;
 import static com.island.frame.StartPosition.*;
 
@@ -10,14 +13,10 @@ import static com.island.frame.StartPosition.*;
 public class Main {
     public static void main(String[] args) {
         startField();
-        createListAnimals();
-        Set<Map.Entry<AnimalTypeEnum, Integer>> entries = countingAnimals().entrySet();
-        for (Map.Entry<AnimalTypeEnum, Integer> pair : entries) {
-            AnimalTypeEnum key = pair.getKey();
-            Integer value = pair.getValue();
-            System.out.println("На поле сейчас: " + value + "объектов под видом " + key);
-        }
 
+        startAnimals();
+     //   countingAnimals();
+        animalsList();
 
         for (String[] row : field) {
             printRow(row);
