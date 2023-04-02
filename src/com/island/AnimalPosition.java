@@ -26,12 +26,12 @@ public class AnimalPosition {
         return animals;
     }
 
-    public void addAnimal(Animals animals) {
-        animals.add(animals);
+    public void addAnimal(Animals animal) {
+        animals.add(animal);
     }
 
-    public void removeAnimal(Animals animals) {
-        animals.remove(animals);
+    public void removeAnimal(Animals animal) {
+        animals.remove(animal);
     }
 
     public boolean isEmpty() {

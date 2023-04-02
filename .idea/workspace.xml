@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="30_03_23">
-      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalPosition.java" afterDir="false" />
+    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="31.03.23">
+      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalPopulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Actions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalTypeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/Animals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Animals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/BehaviorAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BehaviorAnimals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Main.java" afterDir="false" />
@@ -17,7 +19,6 @@
       <change beforePath="$PROJECT_DIR$/src/com/island/animals/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Horse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/animals/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Mouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/animals/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/animals/Wolf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/frame/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680165382399</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="31.03.23">
+      <created>1680252641569</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680252641569</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -200,6 +208,24 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="27_03_23" />
     <MESSAGE value="30_03_23" />
-    <option name="LAST_COMMIT_MESSAGE" value="30_03_23" />
+    <MESSAGE value="31.03.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="31.03.23" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/island/Main.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this" />
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -1,83 +1,110 @@
 package com.island;
 
-import com.island.AnimalPosition;
-import com.island.Animals;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import static com.island.Constants.*;
 
 public class AnimalGrid {
-    private final int rows;
-    private final int cols;
-    private final List<Animals> animalsList;
+    private Map<AnimalPosition, List<Animals>> animalPositionListMap;
 
-    public AnimalGrid(int rows, int cols) {
-        this.rows = rows;
-        this.cols = cols;
-        this.animalsList = new ArrayList<>();
-    }
-
-    public void addAnimal(Animals animal) {
-        animalsList.add(animal);
-    }
-
-    public void runSimulation(int steps) {
-        // Рандомизируем порядок животных в списке
-        Collections.shuffle(animalsList);
-
-        // Запускаем симуляцию на заданное количество шагов
-        for (int i = 0; i < steps; i++) {
-            for (Animals animal : animalsList) {
-                AnimalPosition currentPosition = animal.getPosition();
-                int newRow = currentPosition.getRow();
-                int newCol = currentPosition.getCol();
-                int moveCells = animal.getMovementRange();
-
-                // Проверяем, что животное не выходит за границы сетки
-                if (newRow + moveCells >= rows) {
-                    newRow = rows - 1;
-                } else if (newRow - moveCells < 0) {
-                    newRow = 0;
-                } else {
-                    newRow += (int) (Math.random() * (2 * moveCells + 1)) - moveCells;
-                }
-                if (newCol + moveCells >= cols) {
-                    newCol = cols - 1;
-                } else if (newCol - moveCells < 0) {
-                    newCol = 0;
-                } else {
-                    newCol += (int) (Math.random() * (2 * moveCells + 1)) - moveCells;
-                }
-
-                // Обновляем позицию животного
-                AnimalPosition newPosition = new AnimalPosition(newRow, newCol);
-                animal.setPosition(newPosition);
+    public AnimalGrid(List<Animals> animals) {
+        animalPositionListMap = new HashMap<>();
+        for (int x = 0; x < WIDTH; x++) {
+            for (int y = 0; y < HEIGHT; y++) {
+                AnimalPosition position = new AnimalPosition(x, y);
+                animalPositionListMap.put(position, new ArrayList<>());
             }
-            printGrid();
         }
-    }
-
-    private void printGrid() {
-        // Создаем пустую сетку, заполненную пробелами
-        char[][] grid = new char[rows][cols];
-        for (char[] row : grid) {
-            Arrays.fill(row, ' ');
-        }
-
-        // Добавляем животных в соответствующие ячейки
-        for (Animals animal : animalsList) {
+        for (Animals animal : animals) {
             AnimalPosition position = animal.getPosition();
-            int row = position.getRow();
-            int col = position.getCol();
-            grid[row][col] = animal.getSymbol();
+            List<Animals> animalList = animalPositionListMap.get(position);
+            animalList.add(animal);
         }
-
-        // Выводим сетку в консоль
-        for (char[] row : grid) {
-            System.out.println(new String(row));
-        }
-        System.out.println();
     }
+
+    public Map<AnimalPosition, List<Animals>> getAnimalPositionListMap() {
+        return animalPositionListMap;
+    }
+    public void populate(AnimalPopulation population) {
+        for (Animals animal : population.getAnimals()) {
+            AnimalPosition position = animal.getPosition();
+            List<Animals> animalsInCell = animalPositionListMap.computeIfAbsent(position, k -> new ArrayList<>());
+            animalsInCell.add(animal);
+        }
+    }
+
+    public void  addAnimal(Animals animal, AnimalPosition position) {
+        List<Animals> animalsInCell = animalPositionListMap.getOrDefault(position, new ArrayList<>());
+        animalsInCell.add(animal);
+        animalPositionListMap.put(position, animalsInCell);
+    }
+
+    public void removeAnimal(Animals animal, AnimalPosition position) {
+        animalPositionListMap.get(position).remove(animal);
+    }
+
+
+    public void moveAnimals() {
+        Map<AnimalPosition, List<Animals>> newGrid = new HashMap<>();
+
+        for (List<Animals> animals : animalPositionListMap.values()) {
+            for (Animals animal : animals) {
+                List<AnimalPosition> newPositions = animal.move(animal.getPosition(), this);
+
+                for (AnimalPosition newPosition : newPositions) {
+                    if (!newGrid.containsKey(newPosition)) {
+                        newGrid.put(newPosition, new ArrayList<>());
+                    }
+                    newGrid.get(newPosition).add(animal);
+                }
+            }
+        }
+        animalPositionListMap = newGrid;
+    }
+
+    public List<AnimalPosition> getPositions(Animals animal) {
+        List<AnimalPosition> positions = new ArrayList<>();
+        for (AnimalPosition position : animalPositionListMap.keySet()) {
+            if (animalPositionListMap.get(position).contains(animal)) {
+                positions.add(position);
+            }
+        }
+        return positions;
+    }
+
+    public AnimalPosition getAnimalPosition(int x, int y) {
+        if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
+            return new AnimalPosition(x, y);
+        } else {
+            return null;
+        }
+    }
+
+    public void moveAnimals(AnimalPosition position, List<AnimalPosition> newPositions, Animals animal) {
+        for (AnimalPosition newPosition : newPositions) {
+            addAnimal(animal, newPosition);
+        }
+    }
+
+//    private void printGrid() {
+//        // Создаем пустую сетку, заполненную пробелами
+//        String[][] grid = new String[rows][cols];
+//        for (String[] row : grid) {
+//            Arrays.fill(row, ".");
+//        }
+//
+//        // Добавляем животных в соответствующие ячейки
+//        for (Animals animal : animalsList) {
+//            AnimalPosition position = animal.getPosition();
+//            int row = position.getRow();
+//            int col = position.getCol();
+//            grid[row][col] = animal.getSymbol();
+//        }
+//
+//        // Выводим сетку в консоль
+//        for (String[] row : grid) {
+//            System.out.println(Arrays.toString(row));
+//        }
+//        System.out.println();
+//    }
 }

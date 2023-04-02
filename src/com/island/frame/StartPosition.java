@@ -1,43 +1,29 @@
 package com.island.frame;
 
-import com.island.AnimalTypeEnum;
-import com.island.Animals;
-import com.island.Constants;
+import com.island.*;
 import com.island.animals.Fox;
+import com.island.animals.Horse;
+import com.island.animals.Mouse;
+import com.island.animals.Wolf;
 
 import java.util.Random;
 
-import static com.island.AnimalFactory.createAnimal;
-import static com.island.AnimalTypeEnum.*;
-import static com.island.Constants.*;
+import static com.island.Constants.HEIGHT;
+import static com.island.Constants.WIDTH;
+
 
 public class StartPosition {
-    public static String[][] field = new String[Constants.WIDTH][Constants.HEIGHT];
+    public static String[][] field = new String[WIDTH][Constants.HEIGHT];
     public static Random randomStart = new Random();
 
     public static void startField() {
-        for (int i = 0; i < Constants.WIDTH; i++) {
+        for (int i = 0; i < WIDTH; i++) {
             for (int j = 0; j < Constants.HEIGHT; j++) {
                 field[i][j] = ".";
             }
         }
     }
 
-    public static void startAnimals() {
-        for (int i = 0; i < AMT_HORSE_CUB; i++) {
-            createAnimal(HORSE);
-        }
-        for (int i = 0; i < AMT_FOX_CUB; i++) {
-            createAnimal(FOX);
-        }
-        for (int i = 0; i < AMT_WOLF_CUB; i++) {
-            createAnimal(WOLF);
-        }
-        for (int i = 0; i < AMT_MOUSE_CUB; i++) {
-            createAnimal(MOUSE);
-        }
-
-    }
 
     public static void printRow(String[] field) {
         for (String i : field) {

@@ -10,10 +10,4 @@ public enum AnimalTypeEnum {
     MOUSE,
     HORSE, AnimalType, AnimalFactory;
 
-    public static List<String>  animalListType(){
-        List<String>  listAnimals=  Stream.of(AnimalType.values())
-                .map(Enum::name)
-                .collect(Collectors.toList());
-        return listAnimals;
-    }
 }
