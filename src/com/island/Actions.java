@@ -5,6 +5,9 @@ public class Actions {
     public interface Movable  {
         int getMovementRange();
     }
+    public interface Name {
+        String getName();
+    }
 
     public interface PositionAnimals {
         int positionX();
@@ -18,6 +21,7 @@ public class Actions {
 
     public interface Eating {
         public void eat();
+
     }
 
     public interface Reproduce {

@@ -1,10 +1,6 @@
 package com.island.frame;
 
 import com.island.*;
-import com.island.animals.Fox;
-import com.island.animals.Horse;
-import com.island.animals.Mouse;
-import com.island.animals.Wolf;
 
 import java.util.Random;
 
@@ -18,7 +14,7 @@ public class StartPosition {
 
     public static void startField() {
         for (int i = 0; i < WIDTH; i++) {
-            for (int j = 0; j < Constants.HEIGHT; j++) {
+            for (int j = 0; j < HEIGHT; j++) {
                 field[i][j] = ".";
             }
         }

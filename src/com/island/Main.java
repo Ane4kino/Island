@@ -1,31 +1,33 @@
 package com.island;
 
-import com.island.animals.Fox;
-import com.island.animals.Horse;
-import com.island.animals.Mouse;
-import com.island.animals.Wolf;
+import static com.island.AnimalMovement.*;
+import static com.island.BaseEntityPopulation.startAnimals;
 
-import java.util.*;
-
-import static com.island.AnimalPopulation.startAnimals;
-import static com.island.Constants.*;
-import static com.island.frame.StartPosition.*;
-
-import com.island.AnimalPopulation.*;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        startField();
-        AnimalPopulation population = new AnimalPopulation();
+        BaseEntityPopulation population = new BaseEntityPopulation();
         startAnimals(population);
-        population.printAnimalMap();
+//        population.printAnimalMap();
 
-        AnimalGrid animalGrid = new AnimalGrid(population);
-        AnimalSimulator simulator = new AnimalSimulator(population);
-        simulator.startSimulation(10, 1);
-        population.printAnimalMap();
+        AnimalGrid animalGrid = new AnimalGrid(population, population.getBaseEntity());
+        animalGrid.printGrid(population);
+        animalGrid.printAllGrid(population);
+
+        moveAnimals(population.getBaseEntity());
+
+        animalGrid.printAllGrid(population);
+
+
+//        animalGrid.moveAnimals();
+//        animalGrid.printGrid();
+
+        //      AnimalSimulator simulator = new AnimalSimulator(animalGrid, population);
+//        simulator.startSimulation(1,1,population);
+//        population.printAnimalCount();
+        //    population.printAnimalMap();
 
 
 //        for (String[] row : field) {

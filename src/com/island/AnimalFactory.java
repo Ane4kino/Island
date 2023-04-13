@@ -1,11 +1,5 @@
 package com.island;
 
-import com.island.animals.*;
-
-import static com.island.Constants.*;
-import static com.island.frame.StartPosition.field;
-import static com.island.frame.StartPosition.randomStart;
-
 
 //public class AnimalFactory {
 //    public static Animals createAnimal(AnimalTypeEnum type, int x, int y) {

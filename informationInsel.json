@@ -1,0 +1,14 @@
+{
+  "name": "Fox",
+  "age": 6,
+  "movementRange": 2,
+  "breedingAge": 2,
+  "maxNumber": 30,
+  "breedingProbability": 0.5,
+  "weight": 8,
+  "kilogramToSaturation": 2,
+  "eatingMap": {
+    "Rabbit": 70,
+    "Mouse": 90
+  }
+}
