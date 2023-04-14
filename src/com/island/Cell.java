@@ -12,7 +12,13 @@ public class Cell {
     private int animalCount; // количество животных
     private List<BaseEntity> entities;
     private Map<String, Integer> animalCountsByType; // количество животных по типам
+    public List<BaseEntity> getEntities() {
+        return entities;
+    }
 
+    public void removeEntity(BaseEntity entity) {
+        entities.remove(entity);
+    }
     public Cell() {
         this.content = "--0 шт"; // инициализация содержимого ячейки
         this.animalCount = 0; // инициализация количества животных
@@ -24,13 +30,13 @@ public class Cell {
     public void addAnimal(BaseEntity animal) {
         entities.add(animal);
         String symbol = animal.getSymbol();
-        int count = animalCountsByType.getOrDefault(symbol, 0);
-        animalCountsByType.put(symbol, count + 1);
+        animalCount = animalCountsByType.getOrDefault(symbol, 0);
+        animalCountsByType.put(symbol, animalCount + 1);
         animalCount++;
-        updateContent();
-
     }
-
+    public void clearEntities() {
+        entities.clear();
+    }
     public boolean containsAnimal(BaseEntity baseEntity) {
         for (BaseEntity animalInCell : entities) {
             if (animalInCell.equals(baseEntity)) {
@@ -39,9 +45,7 @@ public class Cell {
         }
         return false;
     }
-    public List<BaseEntity> getEntities() {
-        return entities;
-    }
+
     // Метод для обновления содержимого ячейки на основе карты количества животных по типам
     private void updateContent() {
         StringBuilder sb = new StringBuilder();
@@ -57,18 +61,19 @@ public class Cell {
 
     // Метод для вывода содержимого ячейки в формате, подходящем для вывода на экран
     public String getFormattedContent() {
+        updateContent();
         return String.format("%-40s", content);
     }
 
     // Метод для получения общего количества животных в ячейке
     public int getAnimalCount(BaseEntity baseEntity) {
-        int count = 0;
+        animalCount = 0;
         for (BaseEntity animal : entities) {
             if (animal.getSymbol().equals(baseEntity.getSymbol())) {
-                count++;
+                animalCount++;
             }
         }
-        return count;
+        return animalCount;
     }
 }
 

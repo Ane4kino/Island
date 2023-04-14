@@ -63,21 +63,4 @@ public class BaseEntityPopulation {
         }
     }
 
-
-    public void printAnimalMap() {
-        for (BaseEntity baseEntity : baseEntities) {
-            int positionX = baseEntity.getPosition().getX();
-            int positionY = baseEntity.getPosition().getY();
-
-            if (!baseEntities.isEmpty()) {
-                String animalNames = baseEntity.getSymbol().lines().collect(Collectors.joining(","));
-
-                field[positionX][positionY] = animalNames;
-                System.out.println(positionX + "," + positionY + " " + animalNames);
-            } else {
-                // Если список animals пуст, то устанавливаем символ "." на поле
-                field[positionX][positionY] = ".";
-            }
-        }
-    }
 }

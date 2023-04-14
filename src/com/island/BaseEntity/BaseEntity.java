@@ -1,12 +1,16 @@
 package com.island.BaseEntity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.island.*;
 import com.island.Actions.*;
-import com.island.AnimalPosition;
-import com.island.AnimalTypeEnum;
-import com.island.BaseEntityPopulation;
+import com.island.frame.Direction;
 import com.island.frame.Sign;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import static com.island.Constants.*;
 
 
 public abstract class BaseEntity implements Sign, Movable, Eating, Reproduce, Die, AnimalType, Name {
@@ -29,7 +33,7 @@ public abstract class BaseEntity implements Sign, Movable, Eating, Reproduce, Di
         this.isAlive = isAlive;
         this.position = position;
     }
-
+    @JsonCreator
     public BaseEntity(int age, boolean isAlive, int movementRange, int breedingAge, int maxAge, double breedingProbability, int maxLitterSize, int maxNumber, String name, double weight, Map<BaseEntityPopulation, Integer> eatingMap, int kilogramToSaturation, AnimalPosition position) {
         this.age = age;
         this.isAlive = isAlive;
@@ -51,17 +55,15 @@ public abstract class BaseEntity implements Sign, Movable, Eating, Reproduce, Di
 
     private AnimalPosition position;
 
-    public void setPosition(AnimalPosition position) {
-        this.position = position;
+    public void setPosition(AnimalPosition newPosition) {
+        this.position = newPosition;
     }
 
     public AnimalPosition getPosition() {
         return position;
     }
 
-    public int getMovementRange() {
-        return movementRange;
-    }
+
 
     @Override
     public void eat() {
@@ -70,10 +72,45 @@ public abstract class BaseEntity implements Sign, Movable, Eating, Reproduce, Di
     @Override
     public void die() {
     }
+    public void move(BaseEntityPopulation population) {
 
-    public void setX(int newX) {
+        for (BaseEntity base : population.getBaseEntity()) {
+            // определение новых координат на основе текущих координат и количества шагов
+            Direction randomMove = setRandomMove();
+            int newX = base.position.getX() + (randomMove == Direction.LEFT ? -base.getMovementRange() : (randomMove == Direction.RIGHT ? base.getMovementRange() : 0));
+            int newY = base.position.getY() + (randomMove == Direction.UP ? -base.getMovementRange() : (randomMove == Direction.DOWN ? base.getMovementRange() : 0));
+// проверка на возможность перемещения на новую позицию
+            if (newX >= 0 && newX < WIDTH && newY >= 0 && newY < HEIGHT) {
+                // обновление координат животного
+                base.setPosition(new AnimalPosition(newX,newY));
+            }
+        }
+    }
+    private static Direction setRandomMove() {
+        int randomBehavior = (int) (Math.random() * 4) + 1;
+        Direction key = null;
+        if (randomBehavior == 1)
+            key = Direction.LEFT;
+        else if (randomBehavior == 2)
+            key = Direction.RIGHT;
+        else if (randomBehavior == 3)
+            key = Direction.UP;
+        else if (randomBehavior == 4)
+            key = Direction.DOWN;
+        return key;
+    }
+    private Cell currentCell; // Поле для хранения текущей ячейки
+
+    // Метод для установки текущей ячейки
+    public void setCurrentCell(Cell cell) {
+        this.currentCell = cell;
     }
 
-    public void setY(int newY) {
+    // Метод для получения текущей ячейки
+    public Cell getCurrentCell() {
+        return currentCell;
     }
+
+
 }
+

@@ -4,29 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="2.04.23">
-      <change afterPath="$PROJECT_DIR$/informationInsel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/AnimalMovement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="13.04.23">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/esigate_maven_skin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/github_java_json_tools_schema_core.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/projectlombok_test_maven_lombok.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/ConstantsReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/informationIsland.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Island.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Island.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Actions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/informationInsel.json" beforeDir="false" afterPath="$PROJECT_DIR$/informationInsel.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalPopulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntityPopulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalPosition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/AnimalSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/Animals.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/BehaviorAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BehaviorAnimals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Fox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntityPopulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntityPopulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/animals/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Fox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/animals/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Horse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/animals/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Mouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/animals/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Wolf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/StartPosition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,28 +51,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/IdeaProjects/lib&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/PC/IdeaProjects/lib",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.editor"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.island" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\IdeaProjects\Island\src\com\island\file" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="ConstantsReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.island.ConstantsReader" />
+      <module name="Island" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.island.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.island.Main" />
       <module name="Island" />
@@ -94,6 +105,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ConstantsReader" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680446676187</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="13.04.23">
+      <created>1681385124474</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681385124474</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -232,12 +251,33 @@
     <MESSAGE value="30_03_23" />
     <MESSAGE value="31.03.23" />
     <MESSAGE value="2.04.23" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.04.23" />
+    <MESSAGE value="13.04.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="13.04.23" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/island/AnimalGrid.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/island/AnimalGrid.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="animalGrid" />
+        <watch expression="cell" />
+        <watch expression="cell.animalCountsByType" />
       </configuration>
     </watches-manager>
   </component>

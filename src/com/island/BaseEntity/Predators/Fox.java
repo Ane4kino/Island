@@ -1,5 +1,6 @@
 package com.island.BaseEntity.Predators;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.island.AnimalPosition;
 import com.island.AnimalTypeEnum;
 import com.island.BaseEntity.BaseEntity;

@@ -19,17 +19,4 @@ public class AnimalSimulator {
         baseEntities = population.getBaseEntity();
     }
 
-
-//    public void startSimulation(int years, int delaySeconds, AnimalPopulation population, AnimalPosition animalGrid) {
-//        for (int i = 0; i < years; i++) {
-//            for (AnimalPopulation animalPopulation: population.) {
-//
-//            }
-//            try {
-//                Thread.sleep(delaySeconds * 1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 }

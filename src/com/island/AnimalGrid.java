@@ -1,6 +1,7 @@
 package com.island;
 
 import com.island.BaseEntity.BaseEntity;
+import com.island.frame.Direction;
 
 import java.util.*;
 
@@ -9,6 +10,7 @@ import static com.island.Constants.*;
 public class AnimalGrid {
     private Map<AnimalPosition, List<BaseEntity>> animalPositionListMap;
     private Cell[][] table;
+
     public AnimalGrid() {
         table = new Cell[WIDTH][HEIGHT];
     }
@@ -50,23 +52,48 @@ public class AnimalGrid {
             // обновляем animalPositionListMap с учетом текущего животного
             animalPositionListMap.put(position, entitiesInCell);
         }
-
     }
 
-    public void addAnimal(BaseEntity animal, AnimalPosition position) {
-        List<BaseEntity> animals = animalPositionListMap.get(position);
-        if (animals == null) {
-            animals = new ArrayList<>();
-            animalPositionListMap.put(position, animals);
+    // Метод для получения списка сущностей на определенной позиции
+    public List<BaseEntity> getEntitiesAtPosition(AnimalPosition position) {
+        return animalPositionListMap.getOrDefault(position, new ArrayList<>());
+    }
+
+    public void move() {
+        for (int i = 0; i < getTable().length; i++) {
+            for (int j = 0; j < getTable()[i].length; j++) {
+                Cell cell = getTable()[i][j];
+// получаем ячейку из таблицы
+                List<BaseEntity> entitiesInCell = cell.getEntities();
+
+                for (int n = 0; n < entitiesInCell.size(); n++) {
+                    Direction randomMove = setRandomMove();
+                    int newX = entitiesInCell.get(n).getPosition().getX() + (randomMove == Direction.LEFT ? -4 : randomMove == Direction.RIGHT ? 4 : 0);
+                    int newY = entitiesInCell.get(n).getPosition().getY() + (randomMove == Direction.UP ? -4 : randomMove == Direction.DOWN ? 4 : 0);
+// проверка на возможность перемещения на новую позицию
+                    if (newX >= 0 && newX < WIDTH && newY >= 0 && newY < HEIGHT) {
+                        // обновление координат животного
+                        entitiesInCell.get(n).setPosition(new AnimalPosition(newX, newY));
+                    }
+                }
+            }
+            // определение новых координат на основе текущих координат и количества шагов
         }
-        animals.add(animal);
     }
 
-    public void removeAnimal(BaseEntity animal, AnimalPosition position) {
-        animalPositionListMap.get(position).remove(animal);
+    private static Direction setRandomMove() {
+        int randomBehavior = (int) (Math.random() * 4) + 1;
+        Direction key = null;
+        if (randomBehavior == 1)
+            key = Direction.LEFT;
+        else if (randomBehavior == 2)
+            key = Direction.RIGHT;
+        else if (randomBehavior == 3)
+            key = Direction.UP;
+        else if (randomBehavior == 4)
+            key = Direction.DOWN;
+        return key;
     }
-
-
 //    public void moveAnimals() {
 //        Map<AnimalPosition, List<BaseEntity>> newGrid = new HashMap<>();
 //
@@ -111,7 +138,6 @@ public class AnimalGrid {
 //        }
 //    }
 
-
     public void printAllGrid(BaseEntityPopulation population) {
         for (int i = 0; i < getTable().length; i++) {
             System.out.println();
@@ -129,11 +155,12 @@ public class AnimalGrid {
                     baseEntityCounts.put(icon, baseEntityCounts.getOrDefault(icon, 0) + 1);
                 }
                 System.out.print(cell.getFormattedContent() + " ");
+                cell.clearEntities();
             }
             System.out.println();
+
         }
     }
-
 
     public void printGrid(BaseEntityPopulation population) {
         Map<String, Integer> baseEntityCounts = new HashMap<>();
