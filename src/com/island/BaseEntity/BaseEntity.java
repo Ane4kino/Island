@@ -1,70 +1,90 @@
 package com.island.BaseEntity;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.island.*;
 import com.island.Actions.*;
+import com.island.BaseEntity.Herbivores.Horse;
+import com.island.BaseEntity.Herbivores.Mouse;
+import com.island.BaseEntity.Predators.Fox;
+import com.island.BaseEntity.Predators.Wolf;
+import com.island.frame.AnimalGrid;
+import com.island.frame.Cell;
 import com.island.frame.Direction;
 import com.island.frame.Sign;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 import static com.island.Constants.*;
 
 
-public abstract class BaseEntity implements Sign, Movable, Eating, Reproduce, Die, AnimalType, Name {
+public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, AnimalType, Name {
+    protected ObjectMapper objectMapper;
+    private String icon;
+    private String name;
     private int age;
-    private boolean isAlive;
     private int movementRange;//диапазон движения
     private int breedingAge;//возраст размножения
-    private int maxAge;//макс возраст
-    private double breedingProbability;//вероятность размножения
-    private int maxLitterSize;//максимальный вес съеденного
     private int maxNumber;//максимальное количество на ячейке
-    private String name;
-    private double weight;//вес
+    private double breedingProbability;//вероятность размножения
+    private int weight;
+    private int kilogramToSaturation;// максимальное значение насыщения
+    protected boolean isAlive;
+    private int maxAge;//макс возраст
+    private Cell currentCell;
     private Map<BaseEntityPopulation, Integer> eatingMap;
-    private int kilogramToSaturation;
-    private int maxSaturation; // максимальное значение насыщения
+    protected AnimalPosition position;
 
-    public BaseEntity(int age, boolean isAlive, AnimalPosition position) {
-        this.age = age;
+    @Override
+    public String getName() {
+        return name;
+    }
+    public BaseEntity() {
+    }
+    public BaseEntity(boolean isAlive, AnimalPosition position) {
         this.isAlive = isAlive;
         this.position = position;
     }
     @JsonCreator
-    public BaseEntity(int age, boolean isAlive, int movementRange, int breedingAge, int maxAge, double breedingProbability, int maxLitterSize, int maxNumber, String name, double weight, Map<BaseEntityPopulation, Integer> eatingMap, int kilogramToSaturation, AnimalPosition position) {
+    public BaseEntity(String name, int age, int movementRange, int breedingAge, int maxNumber, double breedingProbability, int weight, int kilogramToSaturation, boolean isAlive, int maxAge, Map<BaseEntityPopulation, Integer> eatingMap, AnimalPosition position, Cell currentCell) {
+        this.name = name;
         this.age = age;
-        this.isAlive = isAlive;
         this.movementRange = movementRange;
         this.breedingAge = breedingAge;
-        this.maxAge = maxAge;
-        this.breedingProbability = breedingProbability;
-        this.maxLitterSize = maxLitterSize;
         this.maxNumber = maxNumber;
-        this.name = name;
+        this.breedingProbability = breedingProbability;
         this.weight = weight;
-        this.eatingMap = eatingMap;
         this.kilogramToSaturation = kilogramToSaturation;
+        this.isAlive = isAlive;
+        this.maxAge = maxAge;
+        this.eatingMap = eatingMap;
         this.position = position;
+        this.currentCell = currentCell;
     }
-
-
     public abstract AnimalTypeEnum getType();
-
-    private AnimalPosition position;
-
-    public void setPosition(AnimalPosition newPosition) {
-        this.position = newPosition;
+    public void setPosition(int newX, int newY) {
+        this.position = new AnimalPosition(newX, newY);
     }
+//    public void setPosition(AnimalGrid animalGrid, int newX, int newY) {
+//        AnimalPosition oldPosition = position;
+//        AnimalPosition newPosition = new AnimalPosition(newX, newY);
+//
+//        // Удаляем сущность с ее старой позиции
+//        animalGrid.getCell(oldPosition.getX(), oldPosition.getY()).removeEntity(this);
+//
+//        // Устанавливаем новую позицию для сущности
+//        position = newPosition;
+//
+//        // Добавляем сущность на новую позицию
+//        animalGrid.getCell(newX, newY).addEntity(this);
+//    }
 
     public AnimalPosition getPosition() {
         return position;
     }
-
-
-
     @Override
     public void eat() {
     }
@@ -72,45 +92,25 @@ public abstract class BaseEntity implements Sign, Movable, Eating, Reproduce, Di
     @Override
     public void die() {
     }
-    public void move(BaseEntityPopulation population) {
 
-        for (BaseEntity base : population.getBaseEntity()) {
-            // определение новых координат на основе текущих координат и количества шагов
-            Direction randomMove = setRandomMove();
-            int newX = base.position.getX() + (randomMove == Direction.LEFT ? -base.getMovementRange() : (randomMove == Direction.RIGHT ? base.getMovementRange() : 0));
-            int newY = base.position.getY() + (randomMove == Direction.UP ? -base.getMovementRange() : (randomMove == Direction.DOWN ? base.getMovementRange() : 0));
-// проверка на возможность перемещения на новую позицию
-            if (newX >= 0 && newX < WIDTH && newY >= 0 && newY < HEIGHT) {
-                // обновление координат животного
-                base.setPosition(new AnimalPosition(newX,newY));
-            }
-        }
+    @Override
+    public String toString() {
+        return "BaseEntity{" +
+                "name='" + name + '\'' +
+                ", icon='" + icon + '\'' +
+                ", age=" + age +
+                ", movementRange=" + movementRange +
+                ", breedingAge=" + breedingAge +
+                ", maxNumber=" + maxNumber +
+                ", breedingProbability=" + breedingProbability +
+                ", weight=" + weight +
+                ", kilogramToSaturation=" + kilogramToSaturation +
+                ", isAlive=" + isAlive +
+                ", maxAge=" + maxAge +
+                ", currentCell=" + currentCell +
+                ", eatingMap=" + eatingMap +
+                ", position=" + position +
+                '}';
     }
-    private static Direction setRandomMove() {
-        int randomBehavior = (int) (Math.random() * 4) + 1;
-        Direction key = null;
-        if (randomBehavior == 1)
-            key = Direction.LEFT;
-        else if (randomBehavior == 2)
-            key = Direction.RIGHT;
-        else if (randomBehavior == 3)
-            key = Direction.UP;
-        else if (randomBehavior == 4)
-            key = Direction.DOWN;
-        return key;
-    }
-    private Cell currentCell; // Поле для хранения текущей ячейки
-
-    // Метод для установки текущей ячейки
-    public void setCurrentCell(Cell cell) {
-        this.currentCell = cell;
-    }
-
-    // Метод для получения текущей ячейки
-    public Cell getCurrentCell() {
-        return currentCell;
-    }
-
-
 }
 

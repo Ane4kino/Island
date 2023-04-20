@@ -1,0 +1,15 @@
+{
+  "icon": "\uD83D\uDC34",
+  "name": "Horse",
+  "age": 20,
+  "maxAge": 27,
+  "movementRange": 4,
+  "breedingAge": 5,
+  "maxNumber": 20,
+  "breedingProbability": 0.5,
+  "weight": 400,
+  "kilogramToSaturation": 60,
+  "eatingMap": {
+    "Plants": 90
+  }
+}

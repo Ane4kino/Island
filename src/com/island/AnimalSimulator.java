@@ -1,6 +1,7 @@
 package com.island;
 
 import com.island.BaseEntity.BaseEntity;
+import com.island.frame.AnimalGrid;
 
 import java.util.*;
 

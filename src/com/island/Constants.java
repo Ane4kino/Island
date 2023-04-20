@@ -1,6 +1,7 @@
 package com.island;
 
-import java.util.random.*;
+import java.util.Random;
+
 
 public class Constants {
     public static final int[][] ISLAND_SIZE = new int[100][20];
@@ -30,5 +31,11 @@ public class Constants {
     public static final int AMT_WOLF_CUB = (int) (Math.random() * 8) + 4;
     public static final int AMT_HORSE_CUB = (int) (Math.random() * 2) + 1;
     public static final int AMT_MOUSE_CUB = (int) (Math.random() * 12) + 5;
+    private static final Random random = new Random();
+
+    // Генерируем случайное число в диапазоне от min (включительно) до max (исключительно)
+    public static int getRandomNumber(int min, int max) {
+        return random.nextInt(max - min) + min;
+    }
 
 }

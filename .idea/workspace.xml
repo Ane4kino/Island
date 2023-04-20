@@ -4,24 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="13.04.23">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/esigate_maven_skin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/github_java_json_tools_schema_core.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/projectlombok_test_maven_lombok.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/ConstantsReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/island/file/informationIsland.json" afterDir="false" />
+    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="14.04.23">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_14_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_15_0_rc2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_14_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Plants/Plants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/fox.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/horse.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/mouse.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/plants.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/wolf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Island.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Island.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informationInsel.json" beforeDir="false" afterPath="$PROJECT_DIR$/informationInsel.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Actions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/AnimalGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalMovement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/AnimalSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Horse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Mouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Fox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Wolf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntityPopulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntityPopulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/file/informationIsland.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/file/informationIsland.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +50,22 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2NPP0IRechDipkbn52eMWn5BAam" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -51,28 +75,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/PC/IdeaProjects/lib",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.editor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/IdeaProjects/lib&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.island" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\PC\IdeaProjects\Island\src\com\island\file" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.island.frame" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -81,7 +108,7 @@
       <module name="Island" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.island.*" />
+          <option name="PATTERN" value="com.island.frame.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -160,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681385124474</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="14.04.23">
+      <created>1681464050397</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681464050397</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -252,33 +286,23 @@
     <MESSAGE value="31.03.23" />
     <MESSAGE value="2.04.23" />
     <MESSAGE value="13.04.23" />
-    <option name="LAST_COMMIT_MESSAGE" value="13.04.23" />
+    <MESSAGE value="14.04.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="14.04.23" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/com/island/frame/AnimalGrid.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/island/AnimalGrid.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/island/AnimalGrid.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/com/island/Main.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="cell" />
-        <watch expression="cell.animalCountsByType" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

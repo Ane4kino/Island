@@ -1,0 +1,12 @@
+{
+  "icon": "\uD83D\uDC3A",
+  "name": "Wolf",
+  "age": 1,
+  "maxAge": 14,
+  "movementRange": 3,
+  "breedingAge": 2,
+  "maxNumber": 30,
+  "breedingProbability": 0.5,
+  "weight": 50,
+  "kilogramToSaturation": 8
+}

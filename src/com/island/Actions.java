@@ -1,10 +1,16 @@
 package com.island;
 
+import com.google.common.collect.Table;
+import com.island.BaseEntity.BaseEntity;
+
+import java.util.List;
+
 public class Actions {
 
-    public interface Movable  {
-        int getMovementRange();
-    }
+//    public interface Movable  {
+//        void move(Table.Cell currentCell, Table.Cell targetCell, List<BaseEntity> entitiesInTargetCell);
+//
+//    }
     public interface Name {
         String getName();
     }
