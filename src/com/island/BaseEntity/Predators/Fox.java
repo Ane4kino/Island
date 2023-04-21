@@ -21,34 +21,26 @@ import static com.island.AnimalTypeEnum.FOX;
 import static com.island.Constants.*;
 
 public class Fox extends BaseEntity {
-    private String name;
-    private String icon;
-    private int age;
-    private int maxAge;
-    private int movementRange;//диапазон движения
-    private int breedingAge;//возраст размножения
-    private int maxNumber;//максимальное количество на ячейке
-    private double breedingProbability;//вероятность размножения
-    private double weight;
-    private double kilogramToSaturation;// максимальное значение насыщения
-    private Map<BaseEntityPopulation, Integer> eatingMap;
-    public Fox( boolean isAlive, AnimalPosition position, ObjectMapper objectMapper, String filePath) throws IOException {
-        super(isAlive, position);
-        Fox fox = objectMapper.readValue(new File(filePath), Fox.class);
-        this.name = fox.name;
-        this.icon = fox.icon;
-        this.age = fox.age;
-        this.maxAge = fox.maxAge;
-        this.movementRange = fox.movementRange;
-        this.breedingAge = fox.breedingAge;
-        this.maxNumber = fox.maxNumber;
-        this.breedingProbability = fox.breedingProbability;
-        this.weight = fox.weight;
-        this.kilogramToSaturation = fox.kilogramToSaturation;
-        this.objectMapper = objectMapper;
-        this.eatingMap = fox.eatingMap;
+    private Map<String, Integer> eatingMap;
+
+    public Map<String, Integer> getEatingMap() {
+//        eatingMap=new HashMap<>();
+        eatingMap.put("Rabbit", 70);
+        eatingMap.put("Mouse", 90);
+        return eatingMap;
+    }
+    public Fox() {
     }
 
+    public Fox(String name, String icon, int age, int maxAge, int movementRange, int breedingAge,
+               int maxNumber, double breedingProbability, double weight, double kilogramToSaturation,
+               boolean isAlive, Map<String, Integer> eatingMap, AnimalPosition position) {
+        super(name, icon, age, maxAge, movementRange, breedingAge, maxNumber, breedingProbability,
+                weight, kilogramToSaturation,true);
+        this.isAlive=true;
+        this.eatingMap = eatingMap;
+        this.position = position;
+    }
 
     @Override
     public String getSymbol() {
@@ -72,6 +64,6 @@ public class Fox extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Fox{}"+super.toString();
+        return "Fox{}" + super.toString();
     }
 }

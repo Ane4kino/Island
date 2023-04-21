@@ -31,8 +31,6 @@ public class Cell {
             animalCountsByType.put(symbol, count - 1);
         }
     }
-
-
     public Cell(BaseEntityPopulation population) {
         this.content = "--0 шт"; // инициализация содержимого ячейки
         this.animalCount = 0; // инициализация количества животных

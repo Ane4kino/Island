@@ -12,32 +12,22 @@ import java.io.IOException;
 import java.util.Map;
 
 public class Plants extends BaseEntity {
-    private String name;
-    private String icon;
-    private int age;
-    private int maxAge;
-    private int movementRange;//диапазон движения
-    private int breedingAge;//возраст размножения
-    private int maxNumber;//максимальное количество на ячейке
-    private double breedingProbability;//вероятность размножения
-    private double weight;
-    private double kilogramToSaturation;// максимальное значение насыщения
-    private Map<BaseEntityPopulation, Integer> eatingMap;
-    public Plants( boolean isAlive, AnimalPosition position, ObjectMapper objectMapper, String filePath) throws IOException {
-        super(isAlive, position);
-        Plants plants = objectMapper.readValue(new File(filePath), Plants.class);
-        this.name = plants.name;
-        this.icon = plants.icon;
-        this.age = plants.age;
-        this.maxAge = plants.maxAge;
-        this.movementRange = plants.movementRange;
-        this.breedingAge = plants.breedingAge;
-        this.maxNumber = plants.maxNumber;
-        this.breedingProbability = plants.breedingProbability;
-        this.weight = plants.weight;
-        this.kilogramToSaturation = plants.kilogramToSaturation;
-        this.objectMapper = objectMapper;
-        this.eatingMap = plants.eatingMap;
+    private Map<String, Integer> eatingMap;
+
+    public Map<String, Integer> getEatingMap() {
+        return eatingMap;
+
+    }
+    public Plants() {
+    }
+    public Plants(String name, String icon, int age, int maxAge, int movementRange, int breedingAge,
+                 int maxNumber, double breedingProbability, double weight, double kilogramToSaturation,
+                 boolean isAlive, Map<String, Integer> eatingMap, AnimalPosition position) {
+        super(name, icon, age, maxAge, movementRange, breedingAge, maxNumber, breedingProbability,
+                weight, kilogramToSaturation,true);
+        this.isAlive=true;
+        this.eatingMap = eatingMap;
+        this.position = position;
     }
 
     @Override

@@ -8,9 +8,5 @@
   "maxNumber": 30,
   "breedingProbability": 0.5,
   "weight": 8,
-  "kilogramToSaturation": 2,
-  "eatingMap": {
-    "Rabbit": 70,
-    "Mouse": 90
-  }
+  "kilogramToSaturation": 2
 }

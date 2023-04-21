@@ -1,9 +1,11 @@
 package com.island.frame;
 
+import com.island.AnimalFactory;
 import com.island.AnimalPosition;
 import com.island.BaseEntity.BaseEntity;
 import com.island.BaseEntityPopulation;
 
+import java.io.IOException;
 import java.util.*;
 
 //import static com.island.BaseEntity.BaseEntity.setRandomMove;
@@ -60,6 +62,8 @@ public class AnimalGrid {
     public Map<AnimalPosition, List<BaseEntity>> getAnimalPositionListMap() {
         return animalPositionListMap;
     }
+
+
 
     public void populate(BaseEntityPopulation population) {
         for (BaseEntity animal : population.getBaseEntity()) {

@@ -8,8 +8,5 @@
   "maxNumber": 20,
   "breedingProbability": 0.5,
   "weight": 400,
-  "kilogramToSaturation": 60,
-  "eatingMap": {
-    "Plants": 90
-  }
+  "kilogramToSaturation": 60
 }

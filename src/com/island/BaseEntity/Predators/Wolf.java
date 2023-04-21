@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.island.AnimalPosition;
 import com.island.AnimalTypeEnum;
 import com.island.BaseEntity.BaseEntity;
+import com.island.frame.Cell;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,54 +18,7 @@ import static com.island.Constants.AMT_WOLF_CUB;
 
 public class Wolf extends BaseEntity {
 
-    private String name;
-    private String icon;
-    private int age;
-    private int maxAge;
-    private int movementRange;//диапазон движения
-    private int breedingAge;//возраст размножения
-    private int maxNumber;//максимальное количество на ячейке
-    private double breedingProbability;//вероятность размножения
-    private double weight;
-    private double kilogramToSaturation;// максимальное значение насыщения
     private Map<String, Integer> eatingMap;
-
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public int getMaxAge() {
-        return maxAge;
-    }
-
-    public int getMovementRange() {
-        return movementRange;
-    }
-
-    public int getBreedingAge() {
-        return breedingAge;
-    }
-
-    public int getMaxNumber() {
-        return maxNumber;
-    }
-
-    public double getBreedingProbability() {
-        return breedingProbability;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public double getKilogramToSaturation() {
-        return kilogramToSaturation;
-    }
 
     public Map<String, Integer> getEatingMap() {
 //        eatingMap=new HashMap<>();
@@ -77,51 +31,33 @@ public class Wolf extends BaseEntity {
         return eatingMap;
     }
 
+    @Override
+    public AnimalPosition getPosition() {
+        return position;
+    }
 
-//    public Wolf() {
-//        super();
-//    }
-//
-//    public Wolf(boolean isAlive, AnimalPosition position, ObjectMapper objectMapper, String filePath) throws IOException {
-//        super(isAlive, position);
-//        Wolf wolf = objectMapper.readValue(new File(filePath), Wolf.class);
-//        System.out.println("Read wolf object from file: " + wolf);
-//        this.name = wolf.name;
-//        this.icon = wolf.icon;
-//        this.age = wolf.age;
-//        this.maxAge = wolf.maxAge;
-//        this.movementRange = wolf.movementRange;
-//        this.breedingAge = wolf.breedingAge;
-//        this.maxNumber = wolf.maxNumber;
-//        this.breedingProbability = wolf.breedingProbability;
-//        this.weight = wolf.weight;
-//        this.kilogramToSaturation = wolf.kilogramToSaturation;
-//        this.objectMapper = objectMapper;
-//        System.out.println("Wolf object values after reading from file: " + this);
-//    }
+    protected AnimalPosition position;
 
-    public Wolf(String filePath) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode rootNode = objectMapper.readTree(new File(filePath));
-        AnimalPosition position = new AnimalPosition(0, 0);
+    public void setEatingMap(Map<String, Integer> eatingMap) {
+        this.eatingMap = eatingMap;
+    }
 
-        this.name = rootNode.path("name").asText();
-        this.icon = rootNode.path("icon").asText();
-        this.age = rootNode.path("age").asInt();
-        this.maxAge = rootNode.path("maxAge").asInt();
-        this.movementRange = rootNode.path("movementRange").asInt();
-        this.breedingAge = rootNode.path("breedingAge").asInt();
-        this.maxNumber = rootNode.path("maxNumber").asInt();
-        this.breedingProbability = rootNode.path("breedingProbability").asDouble();
-        this.weight = rootNode.path("weight").asDouble();
-        this.kilogramToSaturation = rootNode.path("kilogramToSaturation").asDouble();
-        this.isAlive = true;
-        this.eatingMap = null;
+    public void setPosition(AnimalPosition position) {
         this.position = position;
     }
 
+    public Wolf(String name, String icon, int age, int maxAge, int movementRange, int breedingAge,
+                int maxNumber, double breedingProbability, double weight, double kilogramToSaturation,
+                boolean isAlive, Map<String, Integer> eatingMap, AnimalPosition position) {
+        super(name, icon, age, maxAge, movementRange, breedingAge, maxNumber, breedingProbability,
+                weight, kilogramToSaturation,true);
+        this.isAlive=true;
+        this.eatingMap = eatingMap;
+        this.position = position;
 
-
+    }
+    public Wolf() {
+    }
 
     @Override
     public String getSymbol() {
