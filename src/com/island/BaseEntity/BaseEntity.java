@@ -106,9 +106,9 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
         this.kilogramToSaturation = kilogramToSaturation;
     }
     public abstract AnimalTypeEnum getType();
-    public void setPosition(int newX, int newY) {
-        this.position = new AnimalPosition(newX, newY);
-    }
+//    public void setPosition(int newX, int newY) {
+//        this.position = new AnimalPosition(newX, newY);
+//    }
 
     public AnimalPosition getPosition() {
         return position;

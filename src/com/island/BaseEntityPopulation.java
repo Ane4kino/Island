@@ -1,28 +1,33 @@
 package com.island;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.island.BaseEntity.BaseEntity;
-import com.island.BaseEntity.Herbivores.Horse;
-import com.island.BaseEntity.Herbivores.Mouse;
-import com.island.BaseEntity.Plants.Plants;
-import com.island.BaseEntity.Predators.Fox;
-import com.island.BaseEntity.Predators.Wolf;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.island.Constants.HEIGHT;
-import static com.island.Constants.WIDTH;
 
 
 public class BaseEntityPopulation {
 
-    private final List<BaseEntity> baseEntities;
+    private List<BaseEntity> baseEntities;
+
+    private List<BaseEntity> baseEntitiesToCell;
+
+    public void setBaseEntitiesToCell(List<BaseEntity> baseEntitiesToCell) {
+        this.baseEntitiesToCell = baseEntitiesToCell;
+    }
+
+    public List<BaseEntity> getBaseEntitiesToCell() {
+        return baseEntitiesToCell;
+    }
+
+
+    public BaseEntityPopulation(List<BaseEntity> baseEntities, List<BaseEntity> baseEntitiesToCell) {
+        this.baseEntities = new ArrayList<>();
+        this.baseEntitiesToCell = baseEntitiesToCell;
+    }
+
 
     public BaseEntityPopulation() {
         this.baseEntities = new ArrayList<>();
@@ -46,6 +51,11 @@ public class BaseEntityPopulation {
         return baseEntities;
     }
 
+    public void setBaseEntity(List<BaseEntity> baseEntities) {
+        this.baseEntities = baseEntities;
+    }
+
+
     private Map<String, Integer> eatingMap;
 
     public List<String> getEntityNameList() {
@@ -62,25 +72,6 @@ public class BaseEntityPopulation {
         return entityNameList;
     }
 
-    public void startAnimals(AnimalFactory animalFactory, BaseEntityPopulation population) throws IOException {
-
-        for (int x = 0; x < WIDTH; x++) {
-            for (int y = 0; y < HEIGHT; y++) {
-                AnimalPosition position = new AnimalPosition(x, y);
-                int n = (int) (Math.random() * 2) + 1;
-                animalFactory.createAnimals(n, "Horse", position);
-                n = (int) (Math.random() * 4) + 1;
-                animalFactory.createAnimals(n, "Mouse", position);
-                n = (int) (Math.random() * 4) + 1;
-                animalFactory.createAnimals(n, "Fox", position);
-                n = (int) (Math.random() * 4) + 1;
-                animalFactory.createAnimals(n, "Wolf", position);
-                n = (int) (Math.random() * 4) + 1;
-                animalFactory.createAnimals(n, "Plants", position);
-
-            }
-        }
-    }
 
     public List<String> getAllSymbols() {
         List<String> symbols = new ArrayList<>();

@@ -1,10 +1,12 @@
 package com.island.frame;
 
+import com.island.AnimalFactory;
 import com.island.BaseEntity.BaseEntity;
 import com.island.BaseEntityPopulation;
 
 import static com.island.Constants.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +24,36 @@ public class Cell {
         }
         return entities;
     }
+    public void addAnimals(String type, int count, AnimalFactory animalFactory) throws IOException {
+        BaseEntityPopulation population = animalFactory.createAnimals(count, type);
+        entities.addAll(population.getBaseEntity());
+    }
+    public void addAnimalToCell(Cell cell, AnimalFactory animalFactory) throws IOException {
+        int numberCount = (int) (Math.random() * 4) + 1;
+        cell.addAnimals("Horse", numberCount, animalFactory);
+        numberCount = (int) (Math.random() * 4) + 1;
+        cell.addAnimals("Mouse", numberCount, animalFactory);
+        numberCount = (int) (Math.random() * 4) + 1;
+        cell.addAnimals("Fox", numberCount, animalFactory);
+        numberCount = (int) (Math.random() * 4) + 1;
+        cell.addAnimals("Plants", numberCount, animalFactory);
+        numberCount = (int) (Math.random() * 4) + 1;
+        cell.addAnimals("Wolf", numberCount, animalFactory);
+    }
+
+
+    public void addEntities(List<BaseEntity> newEntities) {
+        if (entities == null) {
+            entities = new ArrayList<>();
+        }
+        entities.addAll(newEntities);
+        for (BaseEntity entity : newEntities) {
+            String symbol = entity.getSymbol();
+            int count = animalCountsByType.getOrDefault(symbol, 0);
+            animalCountsByType.put(symbol, count + 1);
+        }
+        animalCount = entities.size();
+    }
 
     public void removeEntity(BaseEntity entity) {
         entities.remove(entity);
@@ -30,7 +62,9 @@ public class Cell {
         if (count > 0) {
             animalCountsByType.put(symbol, count - 1);
         }
+        animalCount = entities.size();
     }
+
     public Cell(BaseEntityPopulation population) {
         this.content = "--0 шт"; // инициализация содержимого ячейки
         this.animalCount = 0; // инициализация количества животных
@@ -42,10 +76,11 @@ public class Cell {
     public void addEntity(BaseEntity animal) {
         entities.add(animal);
         String symbol = animal.getSymbol();
-        animalCount = animalCountsByType.getOrDefault(symbol, 0);
-        animalCountsByType.put(symbol, animalCount + 1);
-        animalCount++;
+        int count = animalCountsByType.getOrDefault(symbol, 0);
+        animalCountsByType.put(symbol, count + 1);
+        animalCount = entities.size();
     }
+
 
 //    public void printAnimalCountsByType() {
 //        for (Map.Entry<String, Integer> entry : animalCountsByType.entrySet()) {
@@ -58,35 +93,43 @@ public class Cell {
         entities.clear();
     }
 
-    public boolean containsAnimal(BaseEntity baseEntity) {
-        for (BaseEntity animalInCell : entities) {
-            if (animalInCell.equals(baseEntity)) {
-                return true;
-            }
-        }
-        return false;
-    }
-//    public void addAnimalToCell(Cell cell, BaseEntity animal) {
-//        if (containsAnimal(animal)) {
-//            // Если животное уже присутствует в ячейке, увеличиваем счетчик
-//            int animalCount = getAnimalCount(animal);
-//            setAnimalCount(animal, animalCount + 1);
-//        } else {
-//            // Если животное отсутствует в ячейке, добавляем его и устанавливаем счетчик в 1
-//            addAnimal(animal);
-//            setAnimalCount(animal, 1);
+//    public void addAnimalToCell(BaseEntityPopulation population) {
+//
+//        List<BaseEntity> entities = population.getBaseEntity();
+//
+//        for (BaseEntity entity : population.getBaseEntity()) {
+//            // проверяем, есть ли в ячейке уже такое животное
+//            for (BaseEntity entityInCell : entities) {
+//                if (entityInCell.equals(entity)) {
+//                    // если есть, увеличиваем количество животных этого типа в ячейке
+//                    int count = population.getCount(entityInCell.getType());
+//                    setEntityCount(entityInCell, count + 1);
+//                    return;
+//                }
+//            }
+//
+//            // если животного такого типа еще нет в ячейке, добавляем его и устанавливаем количество в 1
+//            addEntity(entity);
+//            setEntityCount(entity, 1);
 //        }
-//        cell.addAnimal(animal);
 //    }
 
+    public void setEntityCount(BaseEntity entity, int count) {
+        String type = entity.getSymbol();
+        animalCountsByType.put(type, count);
+    }
 
+
+    // Получение количества животных определенного типа в ячейке
+    public int getAnimalCount(String animalType) {
+        return animalCountsByType.getOrDefault(animalType, 0);
+    }
 
     // Установка количества животных определенного типа в ячейке
-    public void setAnimalCount(BaseEntity entity, int count) {
-        String type = entity.getSymbol();
-        int currentCount = animalCountsByType.getOrDefault(type, 0);
-        animalCountsByType.put(type, currentCount + count);
+    public void setAnimalCount(String animalType, int count) {
+        animalCountsByType.put(animalType, count);
     }
+
 
     // Очистка счетчиков количества животных по типам в ячейке
     public void clearAnimalCountsByType() {

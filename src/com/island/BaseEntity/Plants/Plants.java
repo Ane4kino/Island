@@ -22,12 +22,12 @@ public class Plants extends BaseEntity {
     }
     public Plants(String name, String icon, int age, int maxAge, int movementRange, int breedingAge,
                  int maxNumber, double breedingProbability, double weight, double kilogramToSaturation,
-                 boolean isAlive, Map<String, Integer> eatingMap, AnimalPosition position) {
+                 boolean isAlive, Map<String, Integer> eatingMap) {
         super(name, icon, age, maxAge, movementRange, breedingAge, maxNumber, breedingProbability,
                 weight, kilogramToSaturation,true);
         this.isAlive=true;
         this.eatingMap = eatingMap;
-        this.position = position;
+//        this.position = position;
     }
 
     @Override

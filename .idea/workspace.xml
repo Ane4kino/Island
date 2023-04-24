@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="20.04.23">
-      <change afterPath="$PROJECT_DIR$/src/com/island/Runner.java" afterDir="false" />
+    <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="21.04.23">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/BaseEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Horse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Mouse.java" afterDir="false" />
@@ -16,9 +17,6 @@
       <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Wolf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/BaseEntityPopulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/BaseEntityPopulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/file/fox.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/file/fox.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/file/horse.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/file/horse.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/file/mouse.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/file/mouse.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/frame/AnimalGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/AnimalGrid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/frame/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/Cell.java" afterDir="false" />
     </list>
@@ -188,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681989894616</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="21.04.23">
+      <created>1682072386599</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682072386599</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -282,33 +287,29 @@
     <MESSAGE value="13.04.23" />
     <MESSAGE value="14.04.23" />
     <MESSAGE value="20.04.23" />
-    <option name="LAST_COMMIT_MESSAGE" value="20.04.23" />
+    <MESSAGE value="21.04.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="21.04.23" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/island/frame/AnimalGrid.java</url>
-          <line>90</line>
+          <line>107</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/island/frame/AnimalGrid.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/island/Main.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="24" />
+          <line>19</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/com/island/BaseEntityPopulation.java</url>
+          <line>58</line>
+          <properties field="eatingMap" class="com.island.BaseEntityPopulation" />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="population" language="JAVA" />
-        <watch expression="table[x][y]" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
