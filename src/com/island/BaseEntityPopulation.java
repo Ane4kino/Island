@@ -4,6 +4,7 @@ import com.island.BaseEntity.BaseEntity;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -57,19 +58,24 @@ public class BaseEntityPopulation {
 
 
     private Map<String, Integer> eatingMap;
+    public void removeDeadEntities() {
+        Iterator<BaseEntity> iterator = baseEntities.iterator();
+        while (iterator.hasNext()) {
+            BaseEntity entity = iterator.next();
+            if (!entity.isAlive()) {
+                iterator.remove();
+            }
+        }
+    }
 
-    public List<String> getEntityNameList() {
-        List<String> entityNameList = new ArrayList<>();
-//        entityNameList.add("Rabbit");
-        entityNameList.add("Mouse");
-//        entityNameList.add("Deer");
-        entityNameList.add("Fox");
-        entityNameList.add("Plants");
-        entityNameList.add("Wolf");
-        entityNameList.add("Horse");
-//        entityNameList.add("Goat");
-//        entityNameList.add("Sheep");
-        return entityNameList;
+    public int countAliveEntities() {
+        int count = 0;
+        for (BaseEntity entity : baseEntities) {
+            if (entity.isAlive()) {
+                count++;
+            }
+        }
+        return count;
     }
 
 

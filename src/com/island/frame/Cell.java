@@ -13,10 +13,25 @@ import java.util.List;
 import java.util.Map;
 
 public class Cell {
+
     private String content; // содержимое ячейки
     private int animalCount; // количество животных
     private List<BaseEntity> entities;
     private Map<String, Integer> animalCountsByType; // количество животных по типам
+
+    public Cell(BaseEntityPopulation population) {
+        this.content = "--0 шт"; // инициализация содержимого ячейки
+        this.animalCount = 0; // инициализация количества животных
+        this.animalCountsByType = new HashMap<>(); // инициализация карты количества животных по типам
+        this.entities = new ArrayList<>(population.getBaseEntity());
+    }
+//    public void addCountMapToCell(HashMap<String, Integer> animalCountsByType) {
+//        this.animalCountsByType = animalCountsByType;
+//    }
+
+    public Map<String, Integer> getAnimalCountsByType() {
+        return animalCountsByType;
+    }
 
     public List<BaseEntity> getEntities() {
         if (entities == null) {
@@ -24,23 +39,6 @@ public class Cell {
         }
         return entities;
     }
-    public void addAnimals(String type, int count, AnimalFactory animalFactory) throws IOException {
-        BaseEntityPopulation population = animalFactory.createAnimals(count, type);
-        entities.addAll(population.getBaseEntity());
-    }
-    public void addAnimalToCell(Cell cell, AnimalFactory animalFactory) throws IOException {
-        int numberCount = (int) (Math.random() * 4) + 1;
-        cell.addAnimals("Horse", numberCount, animalFactory);
-        numberCount = (int) (Math.random() * 4) + 1;
-        cell.addAnimals("Mouse", numberCount, animalFactory);
-        numberCount = (int) (Math.random() * 4) + 1;
-        cell.addAnimals("Fox", numberCount, animalFactory);
-        numberCount = (int) (Math.random() * 4) + 1;
-        cell.addAnimals("Plants", numberCount, animalFactory);
-        numberCount = (int) (Math.random() * 4) + 1;
-        cell.addAnimals("Wolf", numberCount, animalFactory);
-    }
-
 
     public void addEntities(List<BaseEntity> newEntities) {
         if (entities == null) {
@@ -65,11 +63,10 @@ public class Cell {
         animalCount = entities.size();
     }
 
-    public Cell(BaseEntityPopulation population) {
-        this.content = "--0 шт"; // инициализация содержимого ячейки
-        this.animalCount = 0; // инициализация количества животных
-        this.animalCountsByType = new HashMap<>(); // инициализация карты количества животных по типам
-        this.entities = new ArrayList<>(population.getBaseEntity());
+    public Map<String, Integer> getAnimalsCount() {
+        Map<String, Integer> result = new HashMap<>(animalCountsByType);
+        animalCountsByType.clear();
+        return result;
     }
 
     // Метод для добавления животного в ячейку
@@ -82,37 +79,25 @@ public class Cell {
     }
 
 
-//    public void printAnimalCountsByType() {
-//        for (Map.Entry<String, Integer> entry : animalCountsByType.entrySet()) {
-//            System.out.println(entry.getKey() + ": " + entry.getValue());
-//            System.out.println(getFormattedContent(po));
-//        }
-//    }
-
     public void clearEntities() {
         entities.clear();
     }
 
-//    public void addAnimalToCell(BaseEntityPopulation population) {
-//
-//        List<BaseEntity> entities = population.getBaseEntity();
-//
-//        for (BaseEntity entity : population.getBaseEntity()) {
-//            // проверяем, есть ли в ячейке уже такое животное
-//            for (BaseEntity entityInCell : entities) {
-//                if (entityInCell.equals(entity)) {
-//                    // если есть, увеличиваем количество животных этого типа в ячейке
-//                    int count = population.getCount(entityInCell.getType());
-//                    setEntityCount(entityInCell, count + 1);
-//                    return;
-//                }
-//            }
-//
-//            // если животного такого типа еще нет в ячейке, добавляем его и устанавливаем количество в 1
-//            addEntity(entity);
-//            setEntityCount(entity, 1);
-//        }
-//    }
+    public void addAnimalToCell(BaseEntity entity, BaseEntityPopulation population) {
+        for (BaseEntity entityInCell : population.getBaseEntity()) {
+            if (entityInCell.equals(entity)) {
+                // если есть, увеличиваем количество животных этого типа в ячейке
+                int count = getAnimalCount(entity);
+                setEntityCount(entityInCell, count + 1);
+                return;
+            } // если животного такого типа еще нет в ячейке, добавляем его и устанавливаем количество в 1
+            else {
+                addEntity(entity);
+                setEntityCount(entity, 1);
+            }
+        }
+
+    }
 
     public void setEntityCount(BaseEntity entity, int count) {
         String type = entity.getSymbol();
@@ -137,25 +122,44 @@ public class Cell {
     }
 
     // Метод для обновления содержимого ячейки на основе карты количества животных по типам
-    private void updateContent(BaseEntityPopulation population) {
-        StringBuilder sb = new StringBuilder();
-        for (String symbol : population.getAllSymbols()) {
-            int count = animalCountsByType.getOrDefault(symbol, 0);
-            sb.append(symbol).append("-").append(count).append(" шт, ");
+    public Map<String, Integer> getAnimalCountByType(Cell[][] table, int x, int y) {
+
+        Map<String, Integer> animalCountByType = new HashMap<>();
+
+        for (BaseEntity entity : table[x][y].getEntities()) {
+            String symbol = entity.getSymbol();
+            int count = animalCountByType.getOrDefault(symbol, 0);
+            animalCountByType.put(symbol, count + 1);
+
         }
-        if (sb.length() > 0) {
-            sb.delete(sb.length() - 2, sb.length());
-        } else {
-            sb.append("--0 шт");
+        return animalCountByType;
+    }
+
+    private void updateContent(BaseEntityPopulation population, Cell[][] table) {
+        StringBuilder sb = null;
+        for (int x = 0; x < WIDTH; x++) {
+            for (int y = 0; y < HEIGHT; y++) {
+                sb = new StringBuilder();
+                for (String symbol : population.getAllSymbols()) {
+                    int count =animalCountsByType.getOrDefault(symbol, 0);
+                    sb.append(symbol).append("-").append(count).append(" шт, ");
+                }
+                if (sb.length() > 0) {
+                    sb.delete(sb.length() - 2, sb.length());
+                } else {
+                    sb.append("--0 шт");
+                }
+                content = sb.toString();
+            }
         }
-        content = sb.toString();
 
     }
 
+
     // Метод для вывода содержимого ячейки в формате, подходящем для вывода на экран
-    public String getFormattedContent(BaseEntityPopulation population) {
-        updateContent(population);
-        return String.format("%-40s", content);
+    public String getFormattedContent(BaseEntityPopulation population, Cell[][] table) {
+        updateContent(population, table);
+        return String.format("%-50s", content);
     }
 
     // Метод для получения общего количества животных в ячейке
@@ -167,6 +171,25 @@ public class Cell {
             }
         }
         return animalCount;
+    }
+    public BaseEntityPopulation getPopulation(Cell[][] table) {
+        BaseEntityPopulation population = new BaseEntityPopulation();
+        for (int x = 0; x < WIDTH; x++) {
+            for (int y = 0; y < HEIGHT; y++) {
+                population.getBaseEntity().addAll(table[x][y].getEntities());
+            }
+        }
+        return population;
+    }
+    public List<String> getAllSymbols(BaseEntityPopulation population) {
+        List<String> symbols = new ArrayList<>();
+        for (BaseEntity animal : population.getBaseEntity()) {
+            String symbol = animal.getSymbol();
+            if (!symbols.contains(symbol)) {
+                symbols.add(symbol);
+            }
+        }
+        return symbols;
     }
 }
 

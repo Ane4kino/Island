@@ -6,8 +6,8 @@ import java.util.Random;
 public class Constants {
     public static final int[][] ISLAND_SIZE = new int[100][20];
 
-    public static final int WIDTH = 4;
-    public static final int HEIGHT = 4;
+    public static final int WIDTH = 3;
+    public static final int HEIGHT = 3;
     public static final int WEIGHT_WOLF = 50;
     public static final int MAX_NUMBER_WOLF = 30;
     public static final int SPEED_WOLF = 3;
