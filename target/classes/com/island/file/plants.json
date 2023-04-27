@@ -1,0 +1,12 @@
+{
+  "icon": "\uD83D\uDC01",
+  "name": "Plants",
+  "age": 1,
+  "maxAge": 10,
+  "movementRange": 0,
+  "breedingAge": 2,
+  "maxNumber": 100,
+  "breedingProbability": 0.5,
+  "weight": 8,
+  "kilogramToSaturation": 2
+}

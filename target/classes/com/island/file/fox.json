@@ -1,0 +1,12 @@
+{
+  "icon": "\uD83E\uDD8A",
+  "name": "Fox",
+  "age": 1,
+  "maxAge": 4,
+  "movementRange": 2,
+  "breedingAge": 2,
+  "maxNumber": 30,
+  "breedingProbability": 0.5,
+  "weight": 8,
+  "kilogramToSaturation": 2
+}

@@ -1,0 +1,12 @@
+{
+  "icon": "\uD83D\uDC01",
+  "name": "Mouse",
+  "age": 1,
+  "maxAge": 4,
+  "movementRange": 1,
+  "breedingAge": 1,
+  "maxNumber": 500,
+  "breedingProbability": 0.5,
+  "weight": 0.05,
+  "kilogramToSaturation": 0.01
+}
