@@ -1,23 +1,19 @@
 package com.island.frame;
 
-import com.island.AnimalFactory;
 import com.island.BaseEntity.BaseEntity;
 import com.island.BaseEntityPopulation;
 
 import static com.island.Constants.*;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Cell {
 
     private String content; // содержимое ячейки
     private int animalCount; // количество животных
     private List<BaseEntity> entities;
-    private Map<BaseEntity, Integer> animalCountsByType; // количество животных по типам
+    private Map<String, Integer> animalCountsByType; // количество животных по типам
 
     public Cell(BaseEntityPopulation population) {
         this.content = "--0 шт"; // инициализация содержимого ячейки
@@ -59,29 +55,32 @@ public class Cell {
         animalCountsByType.put(symbol, count + 1);
         animalCount = entities.size();
     }
+    public BaseEntity getEntityBySymbol(String symbol) {
+        return entities.stream()
+                .filter(entity -> entity.getName().equals(symbol))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Объект с символом" + symbol + " не существует."));
+    }
+    public Map<String, Integer> getBreedingPairs(BaseEntityPopulation population) throws InstantiationException, IllegalAccessException {
+        Map<String, Integer> breedingPairs = new HashMap<>();
 
-    public Map<BaseEntity, Integer> getBreedingPairs() {
-        Map<BaseEntity, Integer> breedingPairs = new HashMap<>();
+        // собираем животных, которые достигли возраста размножения
+        // и группируем их по типу в map с количеством животных каждого типа
+        Map<Class<? extends BaseEntity>, Integer> animalCountsByType = getEntities().stream()
+                .filter(entity -> entity.getAge() >= entity.getBreedingAge())
+                .collect(Collectors.groupingBy(BaseEntity::getClass, Collectors.summingInt(entity -> 1)));
 
-        List<BaseEntity> potentialBreedingAnimals = new ArrayList<>(entities);
 
-        for (int i = 0; i < potentialBreedingAnimals.size(); i++) {
-            BaseEntity animal1 = potentialBreedingAnimals.get(i);
-            if (animal1.getAge() >= animal1.getBreedingAge()) {
-                for (int j = i + 1; j < potentialBreedingAnimals.size(); j++) {
-                    BaseEntity animal2 = potentialBreedingAnimals.get(j);
-                    if (animal1.getClass().equals(animal2.getClass()) && animal2.getAge() >= animal2.getBreedingAge()) {
-                        breedingPairs.put(animal1, breedingPairs.getOrDefault(animal1, 0) + 1);
-                        breedingPairs.put(animal2, breedingPairs.getOrDefault(animal2, 0) + 1);
-                        potentialBreedingAnimals.remove(animal1);
-                        potentialBreedingAnimals.remove(animal2);
-                        i--;
-                        break;
-                    }
-                }
+        for (Map.Entry<Class<? extends BaseEntity>, Integer> entry : animalCountsByType.entrySet()) {
+            Class<? extends BaseEntity> animal = entry.getKey();
+            int count = entry.getValue();
+            int pairCount = count / 2;
+            if (pairCount!=0){
+                breedingPairs.put(animal.getSimpleName(), pairCount);
             }
+
         }
-        return breedingPairs;
+       return breedingPairs;
     }
 
 

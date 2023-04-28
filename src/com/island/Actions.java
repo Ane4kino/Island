@@ -6,10 +6,9 @@ import com.island.frame.Cell;
 import com.island.frame.Direction;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static com.island.Constants.HEIGHT;
 import static com.island.Constants.WIDTH;
@@ -21,7 +20,7 @@ public class Actions {
         this.table = table;
     }
 
-    public void move(BaseEntityPopulation population, Cell[][] table) {
+    public void move(Cell[][] table) {
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
                 Cell currentCell = table[x][y];
@@ -48,42 +47,37 @@ public class Actions {
             }
         }
     }
-    public void performBreeding(AnimalFactory animalFactory,BaseEntityPopulation population) throws IOException {
-        for (int i = 0; i < HEIGHT; i++) {
-            for (int j = 0; j < WIDTH; j++) {
-                Cell currentCell = table[i][j];
-                Map<BaseEntity, Integer> breedingPairs = currentCell.getBreedingPairs();
 
 
-                for (Map.Entry<BaseEntity, Integer> entry : breedingPairs.entrySet()) {
+    public void performBreeding(AnimalFactory animalFactory, BaseEntityPopulation population) throws IOException, InstantiationException, IllegalAccessException {
+        for (int x = 0; x < HEIGHT; x++) {
+            for (int y = 0; y < WIDTH; y++) {
+                Cell currentCell = table[x][y];
+                Map<BaseEntity, Integer> newBreedingPairs = new HashMap<>();
+                Map<String, Integer> breedingPairs = currentCell.getBreedingPairs(population);
+                for (Map.Entry<String, Integer> entry : breedingPairs.entrySet()) {
+                    BaseEntity baseEntity = currentCell.getEntityBySymbol(entry.getKey());
+                    newBreedingPairs.computeIfAbsent(baseEntity, k -> 0); // добавляем ключ, если его ещё нет
+                    newBreedingPairs.compute(baseEntity, (k, v) -> v + entry.getValue()); // увеличиваем значение ключа на значение из старой мапы
+                }
 
-                    BaseEntity type = entry.getKey();
-                    int count= currentCell.getAnimalCount(type);
-                    int numBreedingPairs = entry.getValue();
+//                entrySet().stream()
+//                        .filter(entry -> entry.getKey().getAge() >= entry.getKey().getBreedingAge())
+//                        .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue() / 2));
 
-                    for (int k = 0; k < numBreedingPairs; k++) {
-                        List<BaseEntity> newEntities = animalFactory.createAnimals(type.getValueBreed(), type.getName());
-                        for (BaseEntity entity : newEntities) {
+
+                for (BaseEntity baseEntity : newBreedingPairs.keySet()) {
+                    List<BaseEntity> newBaby = animalFactory.createAnimals(baseEntity.getValueBreed(), baseEntity.getName());
+                    for (BaseEntity entity : newBaby) {
+                        if (currentCell.getAnimalCount(entity) < entity.getMaxNumber()) {
                             currentCell.addEntity(entity);
                             population.addAnimal(entity);
                         }
                     }
                 }
-
-                List<BaseEntity> entities = currentCell.getEntities();
-                for (BaseEntity entity : entities) {
-                    if (entity.getAge() >= entity.getMaxAge()) {
-                        currentCell.removeEntity(entity);
-                        entity.setIsAlive(false);
-                        population.removeDeadEntities();
-                    }
-                }
             }
         }
     }
-
-
-
 
 
     private static Direction setRandomMove() {
@@ -99,7 +93,8 @@ public class Actions {
             key = Direction.DOWN;
         return key;
     }
-//    public interface Movable  {
+
+    //    public interface Movable  {
 //        void move(Table.Cell currentCell, Table.Cell targetCell, List<BaseEntity> entitiesInTargetCell);
 //
 //    }

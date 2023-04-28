@@ -1,7 +1,7 @@
 {
   "icon": "\uD83D\uDC34",
   "name": "Horse",
-  "age": 20,
+  "age": 1,
   "maxAge": 27,
   "movementRange": 4,
   "breedingAge": 5,

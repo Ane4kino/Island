@@ -15,7 +15,7 @@ import static java.awt.image.ImageObserver.HEIGHT;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InstantiationException, IllegalAccessException {
 
         BaseEntityPopulation population = new BaseEntityPopulation();
         AnimalFactory animalFactory = new AnimalFactory(new ObjectMapper(), population);
@@ -30,10 +30,10 @@ public class Main {
 
         for (int i = 0; i < 10; i++) {
 
-//            actions.move(population, table);
-//
-//            animalGrid.printGrid(population);
-//            animalGrid.printAllGrid(population);
+            actions.move(table);
+
+            animalGrid.printGrid(population);
+            animalGrid.printAllGrid(population);
             for (BaseEntity entity : population.getBaseEntity()) {
                 entity.increaseAge();
             }
