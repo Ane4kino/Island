@@ -22,28 +22,26 @@ public class Main {
         Cell cell = new Cell(population);
         AnimalGrid animalGrid = new AnimalGrid(population);
         Cell[][] table = animalGrid.getTable();
-        animalGrid.populateTable(animalFactory,population);
-//        animalGrid.printCountMapInCell(population);
-////        animalGrid.setTable(table);
-//        Cell cell00 = animalGrid.getTable()[0][0];
-//        System.out.println(cell00.getFormattedContent(population,table));
-//        population.startAnimals(animalFactory);
-//        animalGrid.startGrid(animalFactory,population);
-//        animalGrid.populate(population);
-//        animalGrid.setTable(table);
-
-
+        animalGrid.populateTable(animalFactory, population);
 
         animalGrid.printGrid(population);
         animalGrid.printAllGrid(population);
-//        animalGrid.move(population,table);
+        Actions actions = new Actions(table);
+
+        for (int i = 0; i < 10; i++) {
+
+//            actions.move(population, table);
 //
-//
-//        animalGrid.printGrid(population);
-//        animalGrid.printAllGrid(population);
-//        animalGrid.move(population,table);
-//        animalGrid.printGrid(population);
-//        animalGrid.printAllGrid(population);
+//            animalGrid.printGrid(population);
+//            animalGrid.printAllGrid(population);
+            for (BaseEntity entity : population.getBaseEntity()) {
+                entity.increaseAge();
+            }
+            actions.performBreeding(animalFactory, population);
+            animalGrid.printGrid(population);
+            animalGrid.printAllGrid(population);
+        }
+
 
     }
 }

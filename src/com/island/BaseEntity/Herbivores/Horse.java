@@ -45,7 +45,7 @@ public class Horse extends BaseEntity {
 
     @Override
     public String getName() {
-        return "лошадь(ей)";
+        return "Horse";
     }
 
 //    @Override

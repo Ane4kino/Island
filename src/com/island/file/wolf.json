@@ -8,5 +8,6 @@
   "maxNumber": 30,
   "breedingProbability": 0.5,
   "weight": 50,
-  "kilogramToSaturation": 8
+  "kilogramToSaturation": 8,
+  "valueBreed": 6
 }

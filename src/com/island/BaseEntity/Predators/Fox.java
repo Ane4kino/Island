@@ -59,7 +59,7 @@ public class Fox extends BaseEntity {
 
     @Override
     public String getName() {
-        return "лис(а)";
+        return "Fox";
     }
 
     @Override

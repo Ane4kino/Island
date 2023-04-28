@@ -49,7 +49,7 @@ public class Mouse extends BaseEntity {
 
     @Override
     public String getName() {
-        return "Мышь(ей)";
+        return "Mouse";
     }
 
 //    @Override

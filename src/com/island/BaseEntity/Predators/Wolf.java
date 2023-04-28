@@ -76,7 +76,7 @@ public class Wolf extends BaseEntity {
 
     @Override
     public String getName() {
-        return "волк(ов)";
+        return "Wolf";
     }
 
 

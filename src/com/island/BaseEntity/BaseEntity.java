@@ -1,15 +1,16 @@
 package com.island.BaseEntity;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.island.Actions.*;
+import com.island.AnimalFactory;
 import com.island.AnimalPosition;
 import com.island.AnimalTypeEnum;
-import com.island.BaseEntityPopulation;
 import com.island.frame.Cell;
 import com.island.frame.Sign;
 
-import java.util.Map;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, AnimalType, Name {
@@ -23,6 +24,12 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
     private double breedingProbability;//вероятность размножения
     private double weight;
     private double kilogramToSaturation;// максимальное значение насыщения
+
+    public int getValueBreed() {
+        return valueBreed;
+    }
+
+    private int valueBreed;
     protected boolean isAlive;
     protected AnimalPosition position;
 
@@ -69,6 +76,7 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
 
     public BaseEntity() {
     }
+
     @JsonCreator
     public BaseEntity(String name, String icon, int age, int maxAge, int movementRange, int breedingAge, int maxNumber,
                       double breedingProbability, double weight, double kilogramToSaturation, boolean isAlive) {
@@ -83,6 +91,7 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
         this.weight = weight;
         this.kilogramToSaturation = kilogramToSaturation;
         this.isAlive = true;
+
     }
 
     //    public BaseEntity(boolean isAlive, AnimalPosition position) {
@@ -105,6 +114,7 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
         this.weight = weight;
         this.kilogramToSaturation = kilogramToSaturation;
     }
+
     public abstract AnimalTypeEnum getType();
 //    public void setPosition(int newX, int newY) {
 //        this.position = new AnimalPosition(newX, newY);
@@ -113,6 +123,7 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
     public AnimalPosition getPosition() {
         return position;
     }
+
     @Override
     public void eat() {
     }
@@ -146,5 +157,43 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
     public double getKilogramToSaturation() {
         return kilogramToSaturation;
     }
+
+//    public void breedListToCell(Cell currentCell, AnimalFactory animalFactory) throws IOException {
+//        List<BaseEntity> entities = currentCell.getEntities();
+//        int count = 0;
+//        // Считаем количество животных, которые достигли возраста размножения
+//        List<BaseEntity> entitiesPair= new ArrayList<>();
+//        for (BaseEntity entity : entities) {
+//            if (entity.getClass() == this.getClass() && entity.getAge() >= getBreedingAge()) {
+//                entitiesPair.add(entity);
+//                count++;
+//            }
+//
+//            if (count >= 2) {
+//                int numOffspring = count / 2;
+//                if (entity.getClass() == this.getClass() && entity.getAge() >= getBreedingAge()) {
+//                    for (int i = 0; i < numOffspring; i++) {
+//                        List<BaseEntity> newEntities = animalFactory.createAnimals(entity.getValueBreed(), entity.getName()); // Создаем новое животное с возрастом 0
+//                        for (BaseEntity newEntity : newEntities) {
+////                            currentCell.addEntity(newEntity);
+////                            entitiesBreed.add(newEntity);
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        for (BaseEntity newEntity : entitiesBreed) {
+//            currentCell.addEntity(newEntity);
+//        }
+//
+//    }
+//    public void breedInCell(Cell currentCell, AnimalFactory animalFactory){
+//        breed();
+//    }
+
+    public void increaseAge() {
+        age++;
+    }
+
 }
 

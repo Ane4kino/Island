@@ -34,6 +34,10 @@ public class Plants extends BaseEntity {
     public int getReproduce() {
         return 0;
     }
+    @Override
+    public String getName() {
+        return "Plants";
+    }
 
     @Override
     public AnimalTypeEnum getType() {
