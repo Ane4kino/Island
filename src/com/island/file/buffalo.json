@@ -1,0 +1,16 @@
+{
+  "icon": "\uD83D\uDC03",
+  "name": "Buffalo",
+  "age": 1,
+  "maxAge": 16,
+  "movementRange": 3,
+  "breedingAge": 1,
+  "maxNumber": 10,
+  "breedingProbability": 0.5,
+  "weight": 700,
+  "kilogramToSaturation": 100,
+  "valueBreed": 1,
+  "eatingMap": {
+    "\uD83C\uDF31": 90
+  }
+}

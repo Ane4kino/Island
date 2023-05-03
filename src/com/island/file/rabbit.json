@@ -1,0 +1,16 @@
+{
+  "icon": "\uD83D\uDC07",
+  "name": "Rabbit",
+  "age": 1,
+  "maxAge": 7,
+  "movementRange": 2,
+  "breedingAge": 2,
+  "maxNumber": 150,
+  "breedingProbability": 0.9,
+  "weight": 2,
+  "kilogramToSaturation": 0.45,
+  "valueBreed": 20,
+  "eatingMap": {
+    "\uD83C\uDF31": 90
+  }
+}

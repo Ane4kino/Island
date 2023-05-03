@@ -1,0 +1,17 @@
+{
+  "icon": "\uD83E\uDD85",
+  "name": "Eagle",
+  "age": 1,
+  "maxAge": 20,
+  "movementRange": 3,
+  "breedingAge": 3,
+  "maxNumber": 20,
+  "breedingProbability": 0.5,
+  "weight": 6,
+  "kilogramToSaturation": 1,
+  "valueBreed": 3,
+  "eatingMap": {
+    "\uD83D\uDC07": 90,
+    "\uD83D\uDC01": 90
+  }
+}

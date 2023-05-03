@@ -1,0 +1,17 @@
+{
+  "icon": "\uD83E\uDD86",
+  "name": "Duck",
+  "age": 1,
+  "maxAge": 15,
+  "movementRange": 4,
+  "breedingAge": 1,
+  "maxNumber": 200,
+  "breedingProbability": 0.5,
+  "weight": 1,
+  "kilogramToSaturation": 0.15,
+  "valueBreed": 8,
+  "eatingMap": {
+    "\uD83C\uDF31": 90,
+    "\uD83D\uDC1B": 90
+  }
+}

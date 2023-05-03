@@ -1,0 +1,16 @@
+{
+  "icon": "\uD83E\uDD8C",
+  "name": "Deer",
+  "age": 1,
+  "maxAge": 17,
+  "movementRange": 4,
+  "breedingAge": 3,
+  "maxNumber": 20,
+  "breedingProbability": 0.5,
+  "weight": 300,
+  "kilogramToSaturation": 50,
+  "valueBreed": 1,
+  "eatingMap": {
+    "\uD83C\uDF31": 90
+  }
+}

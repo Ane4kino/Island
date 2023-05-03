@@ -1,0 +1,16 @@
+{
+  "icon": "\uD83D\uDC10",
+  "name": "Goat",
+  "age": 1,
+  "maxAge": 15,
+  "movementRange": 3,
+  "breedingAge": 2,
+  "maxNumber": 140,
+  "breedingProbability": 0.5,
+  "weight": 60,
+  "kilogramToSaturation": 10,
+  "valueBreed": 2,
+  "eatingMap": {
+    "\uD83C\uDF31": 90
+  }
+}

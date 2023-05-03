@@ -29,6 +29,7 @@ public class Runner extends Thread {
         animalGrid.printGrid(population);
         System.out.println();
         System.out.println("*********************");
+
         ExecutorService service = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 20; i++) {
             actions.move(table, population);

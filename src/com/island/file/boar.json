@@ -1,0 +1,17 @@
+{
+  "icon": "\uD83D\uDC17",
+  "name": "Boar",
+  "age": 1,
+  "maxAge": 11,
+  "movementRange": 2,
+  "breedingAge": 1,
+  "maxNumber": 50,
+  "breedingProbability": 0.5,
+  "weight": 400,
+  "kilogramToSaturation": 50,
+  "valueBreed": 6,
+  "eatingMap": {
+    "\uD83C\uDF31": 90,
+    "\uD83D\uDC01": 50
+  }
+}

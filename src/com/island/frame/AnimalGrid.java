@@ -102,6 +102,60 @@ public class AnimalGrid {
                     population.addAnimal(entity);
                     entities.add(entity);
                 }
+                int eagleCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> eagle = animalFactory.createAnimals(eagleCount, "Eagle");
+                for (BaseEntity entity : eagle) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int rabbitCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> rabbit = animalFactory.createAnimals(rabbitCount, "Rabbit");
+                for (BaseEntity entity : rabbit) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int goatCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> goat = animalFactory.createAnimals(goatCount, "Goat");
+                for (BaseEntity entity : goat) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int sheepCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> sheep = animalFactory.createAnimals(sheepCount, "Sheep");
+                for (BaseEntity entity : sheep) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int boarCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> boar = animalFactory.createAnimals(boarCount, "Boar");
+                for (BaseEntity entity : boar) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int buffaloCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> buffalo = animalFactory.createAnimals(buffaloCount, "Buffalo");
+                for (BaseEntity entity : buffalo) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int caterpillarCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> caterpillar = animalFactory.createAnimals(caterpillarCount, "Caterpillar");
+                for (BaseEntity entity : caterpillar) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int duckCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> duck = animalFactory.createAnimals(duckCount, "Duck");
+                for (BaseEntity entity : duck) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int deerCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> deer = animalFactory.createAnimals(deerCount, "Deer");
+                for (BaseEntity entity : deer) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
 
                 for (BaseEntity entity : entities) {
                     table[x][y].addEntity(entity);

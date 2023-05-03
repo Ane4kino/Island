@@ -1,7 +1,6 @@
 package com.island;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.island.BaseEntity.BaseEntity;
 import com.island.frame.AnimalGrid;
 import com.island.frame.Cell;
 
@@ -18,8 +17,13 @@ public class Main {
         Cell[][] table = animalGrid.getTable();
         Actions actions = new Actions(table);
 
-        Runner runner = new Runner(actions, animalFactory, table, population,animalGrid);
+        Runner runner = new Runner(actions, animalFactory, table, population, animalGrid);
         runner.start();
+
+    }
+//
+
+
 //        BaseEntityPopulation population = new BaseEntityPopulation();
 //        AnimalFactory animalFactory = new AnimalFactory(new ObjectMapper(), population);
 //
@@ -35,10 +39,11 @@ public class Main {
 //        System.out.println();
 //        System.out.println("*********************");
 //        for (int i = 0; i < 20; i++) {
-//            actions.move(table,population);
-//            actions.eating(population);
+//            actions.move(table, population);
+//
 //            actions.performBreeding(animalFactory, population);
 //            actions.runningTime(population);
+//            actions.eating(population);
 //            animalGrid.printGrid(population);
 //            System.out.println();
 //            System.out.println("*********************");
@@ -48,7 +53,6 @@ public class Main {
 ////            animalGrid.printAllGrid(population);
 //
 //        }
-
-
-    }
+//    }
 }
+

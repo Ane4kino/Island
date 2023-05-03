@@ -1,6 +1,7 @@
 package com.island;
 
 import com.island.BaseEntity.BaseEntity;
+import com.island.BaseEntity.Herbivores.Caterpillar;
 import com.island.BaseEntity.Plants.Plants;
 import com.island.frame.Cell;
 import com.island.frame.Direction;
@@ -29,7 +30,7 @@ public class Actions {
 
                 while (iterator.hasNext()) {
                     BaseEntity entity = iterator.next();
-                    if (entity instanceof Plants) {
+                    if (entity instanceof Plants || entity instanceof Caterpillar) {
                         continue; // пропускаем растения
                     }
                     int movementRadius = entity.getMovementRange();
@@ -135,7 +136,7 @@ public class Actions {
         for (String icons : starvedToDeath.keySet()) {
             System.out.print(icons + ": " + starvedToDeath.get(icons));
         }
-
+        System.out.println();
     }
 
     public void checkForSatiety(BaseEntity baseEntity, BaseEntity entity) {

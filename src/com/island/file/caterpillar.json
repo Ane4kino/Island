@@ -1,0 +1,16 @@
+{
+  "icon": "\uD83D\uDC1B",
+  "name": "Caterpillar",
+  "age": 1,
+  "maxAge": 4,
+  "movementRange": 0,
+  "breedingAge": 1,
+  "maxNumber": 1000,
+  "breedingProbability": 0.5,
+  "weight": 0.01,
+  "kilogramToSaturation": 0.01,
+  "valueBreed": 20,
+  "eatingMap": {
+    "\uD83C\uDF31": 90
+  }
+}

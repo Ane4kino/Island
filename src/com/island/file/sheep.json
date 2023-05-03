@@ -1,0 +1,16 @@
+{
+  "icon": "\uD83D\uDC11",
+  "name": "Sheep",
+  "age": 1,
+  "maxAge": 12,
+  "movementRange": 3,
+  "breedingAge": 2,
+  "maxNumber": 140,
+  "breedingProbability": 0.5,
+  "weight": 70,
+  "kilogramToSaturation": 15,
+  "valueBreed": 2,
+  "eatingMap": {
+    "\uD83C\uDF31": 90
+  }
+}

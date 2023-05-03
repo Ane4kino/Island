@@ -5,9 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b51ba296-772a-4217-8c06-c9faf3fbcfdf" name="Changes" comment="3-05-23">
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Buffalo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Caterpillar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Deer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Duck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Goat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Rabbit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Herbivores/Sheep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Boar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/BaseEntity/Predators/Eagle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/boar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/buffalo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/caterpillar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/deer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/duck.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/eagle.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/goat.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/rabbit.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/island/file/sheep.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Actions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/AnimalFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/island/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/island/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/island/frame/AnimalGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/island/frame/AnimalGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/island/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/island/Runner.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="27.04" />
+        <entry key="$PROJECT_DIR$" value="28.04" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -95,7 +116,7 @@
       <module name="Island" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.island.BaseEntity.Predators.*" />
+          <option name="PATTERN" value="com.island.BaseEntity.Herbivores.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -238,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683110326361</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="3-05-23">
+      <created>1683118749548</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683118749548</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
