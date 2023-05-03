@@ -1,0 +1,18 @@
+{
+  "icon": "\uD83D\uDC0D",
+  "name": "Boa",
+  "age": 1,
+  "maxAge": 20,
+  "movementRange": 1,
+  "breedingAge": 3,
+  "maxNumber": 30,
+  "breedingProbability": 0.5,
+  "weight": 15,
+  "kilogramToSaturation": 3,
+  "valueBreed": 12,
+  "eatingMap": {
+    "\uD83D\uDC07": 20,
+    "\uD83D\uDC01": 40,
+    "\uD83E\uDD8A": 15
+  }
+}
