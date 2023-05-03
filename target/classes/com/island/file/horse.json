@@ -9,5 +9,8 @@
   "breedingProbability": 0.5,
   "weight": 400,
   "kilogramToSaturation": 60,
-  "valueBreed": 1
+  "valueBreed": 1,
+  "eatingMap": {
+    "\uD83C\uDF31": 90
+  }
 }

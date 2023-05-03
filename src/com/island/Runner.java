@@ -1,17 +1,17 @@
 package com.island;
-
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.island.BaseEntity.BaseEntity;
+import com.island.frame.AnimalGrid;
+import com.island.frame.Cell;
 
-public class Runner {
+import java.io.IOException;
 
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            JsonNode jsonNode = objectMapper.readTree(new File("src/elective4/anna/wolf.json"));
-//            Wolf wolf = new Wolf(
-//                    jsonNode.path("name").asText(),
-//                    jsonNode.path("icon").asText(),
-//                    jsonNode.path("age").asInt());
-//
-//            System.out.println(wolf);
+public class Runner implements Runnable{
 
+
+    @Override
+    public void run() {
+        Thread thread=Thread.currentThread();
+
+    }
 }

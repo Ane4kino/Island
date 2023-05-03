@@ -38,16 +38,6 @@ public class BaseEntityPopulation {
         baseEntities.add(baseEntity);
     }
 
-    public int getCount(AnimalTypeEnum animalType) {
-        int count = 0;
-        for (BaseEntity baseEntity : baseEntities) {
-            if (baseEntity.getType().equals(animalType.toString())) {
-                count++;
-            }
-        }
-        return count;
-    }
-
     public List<BaseEntity> getBaseEntity() {
         return baseEntities;
     }
@@ -62,27 +52,17 @@ public class BaseEntityPopulation {
         Iterator<BaseEntity> iterator = baseEntities.iterator();
         while (iterator.hasNext()) {
             BaseEntity entity = iterator.next();
-            if (!entity.isAlive()) {
                 iterator.remove();
-            }
         }
     }
-
-    public int countAliveEntities() {
-        int count = 0;
-        for (BaseEntity entity : baseEntities) {
-            if (entity.isAlive()) {
-                count++;
-            }
-        }
-        return count;
+    public void removeEntity(BaseEntity entity) {
+        entity.setIsAlive(false);
+        baseEntities.remove(entity);
     }
-
-
     public List<String> getAllSymbols() {
         List<String> symbols = new ArrayList<>();
         for (BaseEntity animal : getBaseEntity()) {
-            String symbol = animal.getSymbol();
+            String symbol = animal.getIcon();
             if (!symbols.contains(symbol)) {
                 symbols.add(symbol);
             }

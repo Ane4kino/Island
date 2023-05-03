@@ -3,10 +3,10 @@ package com.island.frame;
 import com.island.BaseEntity.BaseEntity;
 import com.island.BaseEntityPopulation;
 
-import static com.island.Constants.*;
-
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static com.island.frame.AnimalGrid.*;
 
 public class Cell {
 
@@ -21,12 +21,19 @@ public class Cell {
         this.animalCountsByType = new HashMap<>(); // инициализация карты количества животных по типам
         this.entities = new ArrayList<>(population.getBaseEntity());
     }
-//    public void addCountMapToCell(HashMap<String, Integer> animalCountsByType) {
-//        this.animalCountsByType = animalCountsByType;
-//    }
 
     public Map<String, Integer> getAnimalCountsByType() {
         return animalCountsByType;
+    }
+    public Map<BaseEntity, Integer> getAnimalCounts(BaseEntityPopulation population){
+        Map<BaseEntity, Integer> newCountEntity = new HashMap<>();
+        Map<String, Integer> countEntity = getAnimalCountsByType();
+        for (Map.Entry<String, Integer> entry : countEntity.entrySet()) {
+            BaseEntity baseEntity = getEntityBySymbol(entry.getKey(),population);
+            newCountEntity.computeIfAbsent(baseEntity, k -> 0); // добавляем ключ, если его ещё нет
+            newCountEntity.compute(baseEntity, (k, v) -> v + entry.getValue()); // увеличиваем значение ключа на значение из старой мапы
+        }
+        return newCountEntity;
     }
 
     public List<BaseEntity> getEntities() {
@@ -39,7 +46,7 @@ public class Cell {
 
     public void removeEntity(BaseEntity entity) {
         entities.remove(entity);
-        String symbol = entity.getSymbol();
+        String symbol = entity.getIcon();
         int count = animalCountsByType.getOrDefault(symbol, 0);
         if (count > 0) {
             animalCountsByType.put(symbol, count - 1);
@@ -50,17 +57,21 @@ public class Cell {
     // Метод для добавления животного в ячейку
     public void addEntity(BaseEntity animal) {
         entities.add(animal);
-        String symbol = animal.getSymbol();
+        String symbol = animal.getIcon();
         int count = animalCountsByType.getOrDefault(symbol, 0);
         animalCountsByType.put(symbol, count + 1);
         animalCount = entities.size();
     }
-    public BaseEntity getEntityBySymbol(String symbol) {
-        return entities.stream()
-                .filter(entity -> entity.getName().equals(symbol))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Объект с символом" + symbol + " не существует."));
+    public BaseEntity getEntityBySymbol(String symbol,BaseEntityPopulation population) {
+        for (BaseEntity entity : population.getBaseEntity()) {
+            if (entity.getIcon().equals(symbol)) {
+                return entity;
+            }
+        }
+        return null;
     }
+
+
     public Map<String, Integer> getBreedingPairs(BaseEntityPopulation population) throws InstantiationException, IllegalAccessException {
         Map<String, Integer> breedingPairs = new HashMap<>();
 
@@ -83,36 +94,12 @@ public class Cell {
        return breedingPairs;
     }
 
-
-    public void setEntityCount(BaseEntity entity, int count) {
-        String type = entity.getSymbol();
-        animalCountsByType.put(type, count);
-    }
-
-
-    // Получение количества животных определенного типа в ячейке
-    public int getAnimalCount(String animalType) {
-        return animalCountsByType.getOrDefault(animalType, 0);
-    }
-
-    // Установка количества животных определенного типа в ячейке
-    public void setAnimalCount(String animalType, int count) {
-        animalCountsByType.put(animalType, count);
-    }
-
-
-    // Очистка счетчиков количества животных по типам в ячейке
-    public void clearAnimalCountsByType() {
-        animalCountsByType.clear();
-    }
-
-    // Метод для обновления содержимого ячейки на основе карты количества животных по типам
     public Map<String, Integer> getAnimalCountByType(Cell[][] table, int x, int y) {
 
         Map<String, Integer> animalCountByType = new HashMap<>();
 
         for (BaseEntity entity : table[x][y].getEntities()) {
-            String symbol = entity.getSymbol();
+            String symbol = entity.getIcon();
             int count = animalCountByType.getOrDefault(symbol, 0);
             animalCountByType.put(symbol, count + 1);
 
@@ -151,7 +138,7 @@ public class Cell {
     public int getAnimalCount(BaseEntity baseEntity) {
         animalCount = 0;
         for (BaseEntity animal : entities) {
-            if (animal.getSymbol().equals(baseEntity.getSymbol())) {
+            if (animal.getIcon().equals(baseEntity.getIcon())) {
                 animalCount++;
             }
         }
@@ -168,15 +155,5 @@ public class Cell {
         return population;
     }
 
-    public List<String> getAllSymbols(BaseEntityPopulation population) {
-        List<String> symbols = new ArrayList<>();
-        for (BaseEntity animal : population.getBaseEntity()) {
-            String symbol = animal.getSymbol();
-            if (!symbols.contains(symbol)) {
-                symbols.add(symbol);
-            }
-        }
-        return symbols;
-    }
 }
 

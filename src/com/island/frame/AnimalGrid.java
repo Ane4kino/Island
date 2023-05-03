@@ -7,11 +7,10 @@ import com.island.BaseEntityPopulation;
 import java.io.IOException;
 import java.util.*;
 
-import static com.island.Constants.HEIGHT;
-import static com.island.Constants.WIDTH;
 
 public class AnimalGrid {
-    //    private Map<AnimalPosition, List<BaseEntity>> animalPositionListMap;
+    public static final int WIDTH = 3;
+    public static final int HEIGHT = 3;
     private Cell[][] table;
 
     public AnimalGrid() {
@@ -21,17 +20,6 @@ public class AnimalGrid {
     public Cell[][] getTable() {
         return table;
     }
-
-    public void setCountMapInCell(HashMap<String, Integer> countMapInCell) {
-        this.countMapInCell = countMapInCell;
-    }
-
-    public HashMap<String, Integer> getCountMapInCell() {
-        return countMapInCell;
-    }
-
-    private HashMap<String, Integer> countMapInCell;
-
     public AnimalGrid(BaseEntityPopulation population) throws IOException {
         // Инициализация поля table
         table = new Cell[WIDTH][HEIGHT];
@@ -89,16 +77,28 @@ public class AnimalGrid {
                     entities.add(entity);
                 }
 
-                int mouseCount = (int) (Math.random() * 3) + 1;
+                int mouseCount = (int) (Math.random() * 10) + 1;
                 List<BaseEntity> mice = animalFactory.createAnimals(mouseCount, "Mouse");
                 for (BaseEntity entity : mice) {
                     population.addAnimal(entity);
                     entities.add(entity);
                 }
 
-                int plantsCount = (int) (Math.random() * 3) + 1;
+                int plantsCount = (int) (Math.random() * 10) + 1;
                 List<BaseEntity> plants = animalFactory.createAnimals(plantsCount, "Plants");
                 for (BaseEntity entity : plants) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int bearCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> bear = animalFactory.createAnimals(bearCount, "Bear");
+                for (BaseEntity entity : bear) {
+                    population.addAnimal(entity);
+                    entities.add(entity);
+                }
+                int boaCount = (int) (Math.random() * 3) + 1;
+                List<BaseEntity> boa = animalFactory.createAnimals(boaCount, "Boa");
+                for (BaseEntity entity : boa) {
                     population.addAnimal(entity);
                     entities.add(entity);
                 }
@@ -125,27 +125,16 @@ public class AnimalGrid {
         }
     }
 
-    public List<BaseEntity> getEntities() {
-        List<BaseEntity> entities = new ArrayList<>();
-        for (int x = 0; x < table.length; x++) {
-            for (int y = 0; y < table[x].length; y++) {
-                entities.addAll(table[x][y].getPopulation(table).getBaseEntity());
-            }
-        }
-        return entities;
-    }
-
-
     public void printGrid(BaseEntityPopulation population) {
         Map<String, Integer> baseEntityCounts = new HashMap<>();
         String icon = null;
         for (BaseEntity animals : population.getBaseEntity()) {
-            icon = animals.getSymbol();
+            icon = animals.getIcon();
             baseEntityCounts.put(icon, baseEntityCounts.getOrDefault(icon, 0) + 1);
         }
         System.out.println("Количество животных на острове:");
         for (String icons : baseEntityCounts.keySet()) {
-            System.out.println(icons + ": " + baseEntityCounts.get(icons));
+            System.out.print(icons + ": " + baseEntityCounts.get(icons));
         }
     }
 }

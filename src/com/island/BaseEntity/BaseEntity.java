@@ -1,19 +1,12 @@
 package com.island.BaseEntity;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.island.Actions.*;
-import com.island.AnimalFactory;
-import com.island.AnimalPosition;
-import com.island.AnimalTypeEnum;
-import com.island.frame.Cell;
-import com.island.frame.Sign;
+import com.island.BaseEntityPopulation;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 
-public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, AnimalType, Name {
+public abstract class BaseEntity {
     private String name;
     private String icon;
     private int age;
@@ -24,62 +17,67 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
     private double breedingProbability;//вероятность размножения
     private double weight;
     private double kilogramToSaturation;// максимальное значение насыщения
-
-    public int getValueBreed() {
-        return valueBreed;
-    }
-
+    private int energyLevel;
     private int valueBreed;
-    protected boolean isAlive;
-    protected AnimalPosition position;
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public int getMovementRange() {
-        return movementRange;
-    }
-
-    public int getBreedingAge() {
-        return breedingAge;
-    }
-
-    public int getMaxNumber() {
-        return maxNumber;
-    }
-
-    public double getBreedingProbability() {
-        return breedingProbability;
-    }
-
-    public boolean isAlive() {
-        return isAlive;
-    }
-
-    public void setIsAlive(boolean alive) {
-        isAlive = alive;
-    }
-
-    public int getMaxAge() {
-        return maxAge;
-    }
-
-    @Override
+    public boolean isAlive;
+    private Map<String, Integer> eatingMap;
     public String getName() {
         return name;
     }
 
+    public Map<String, Integer> getEatingMap() {
+        return eatingMap;
+    }
+    public double getWeight() {
+        return weight;
+    }
+    public double getKilogramToSaturation() {
+        return kilogramToSaturation;
+    }
+    public String getIcon() {
+        return icon;
+    }
+    public int getValueBreed() {
+        return valueBreed;
+    }
+    public int getEnergyLevel() {
+        return energyLevel;
+    }
+    public int getAge() {
+        return age;
+    }
+    public int getMovementRange() {
+        return movementRange;
+    }
+    public int getBreedingAge() {
+        return breedingAge;
+    }
+    public int getMaxNumber() {
+        return maxNumber;
+    }
+    public double getBreedingProbability() {
+        return breedingProbability;
+    }
+    public boolean isAlive() {
+        return isAlive;
+    }
+    public int getMaxAge() {
+        return maxAge;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public void  setEnergyLevel(int energyLevel) {
+        this.energyLevel = energyLevel;
+    }
+    public void setIsAlive(boolean alive) {
+        isAlive = alive;
+    }
     public BaseEntity() {
     }
-
     @JsonCreator
     public BaseEntity(String name, String icon, int age, int maxAge, int movementRange, int breedingAge, int maxNumber,
-                      double breedingProbability, double weight, double kilogramToSaturation, boolean isAlive) {
+                      double breedingProbability, double weight, double kilogramToSaturation, boolean isAlive,Map<String, Integer> eatingMap,int energyLevel) {
         this.name = name;
         this.icon = icon;
         this.age = age;
@@ -91,47 +89,19 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
         this.weight = weight;
         this.kilogramToSaturation = kilogramToSaturation;
         this.isAlive = true;
+        this.energyLevel=energyLevel;
+        this.eatingMap=eatingMap;
 
     }
 
-    //    public BaseEntity(boolean isAlive, AnimalPosition position) {
-//        this.isAlive = isAlive;
-//        this.position = position;
-//    }
-
-    public BaseEntity(boolean isAlive, AnimalPosition position, String filePath) {
-//        Wolf wolf = objectMapper.readValue(new File(filePath), Wolf.class);
-        this.isAlive = isAlive;
-        this.position = position;
-        this.name = name;
-        this.icon = icon;
-        this.age = age;
-        this.maxAge = maxAge;
-        this.movementRange = movementRange;
-        this.breedingAge = breedingAge;
-        this.maxNumber = maxNumber;
-        this.breedingProbability = breedingProbability;
-        this.weight = weight;
-        this.kilogramToSaturation = kilogramToSaturation;
+public BaseEntity getEntityByName(String name, BaseEntityPopulation population) {
+    for (BaseEntity entity : population.getBaseEntity()) {
+        if (entity.getIcon().equals(name)) {
+            return entity;
+        }
     }
-
-    public abstract AnimalTypeEnum getType();
-//    public void setPosition(int newX, int newY) {
-//        this.position = new AnimalPosition(newX, newY);
-//    }
-
-    public AnimalPosition getPosition() {
-        return position;
-    }
-
-    @Override
-    public void eat() {
-    }
-
-    @Override
-    public void die() {
-    }
-
+    return null; // если животное с указанным именем не найдено
+}
     @Override
     public String toString() {
         return "BaseEntity{" +
@@ -146,54 +116,7 @@ public abstract class BaseEntity implements Sign, Eating, Reproduce, Die, Animal
                 ", kilogramToSaturation=" + kilogramToSaturation +
                 ", isAlive=" + isAlive +
                 ", maxAge=" + maxAge +
-                ", position=" + position +
                 '}';
     }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public double getKilogramToSaturation() {
-        return kilogramToSaturation;
-    }
-
-//    public void breedListToCell(Cell currentCell, AnimalFactory animalFactory) throws IOException {
-//        List<BaseEntity> entities = currentCell.getEntities();
-//        int count = 0;
-//        // Считаем количество животных, которые достигли возраста размножения
-//        List<BaseEntity> entitiesPair= new ArrayList<>();
-//        for (BaseEntity entity : entities) {
-//            if (entity.getClass() == this.getClass() && entity.getAge() >= getBreedingAge()) {
-//                entitiesPair.add(entity);
-//                count++;
-//            }
-//
-//            if (count >= 2) {
-//                int numOffspring = count / 2;
-//                if (entity.getClass() == this.getClass() && entity.getAge() >= getBreedingAge()) {
-//                    for (int i = 0; i < numOffspring; i++) {
-//                        List<BaseEntity> newEntities = animalFactory.createAnimals(entity.getValueBreed(), entity.getName()); // Создаем новое животное с возрастом 0
-//                        for (BaseEntity newEntity : newEntities) {
-////                            currentCell.addEntity(newEntity);
-////                            entitiesBreed.add(newEntity);
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        for (BaseEntity newEntity : entitiesBreed) {
-//            currentCell.addEntity(newEntity);
-//        }
-//
-//    }
-//    public void breedInCell(Cell currentCell, AnimalFactory animalFactory){
-//        breed();
-//    }
-
-    public void increaseAge() {
-        age++;
-    }
-
 }
 

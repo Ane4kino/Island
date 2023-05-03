@@ -1,0 +1,21 @@
+{
+  "icon": "\uD83D\uDC3B",
+  "name": "Bear",
+  "age": 1,
+  "maxAge": 30,
+  "movementRange": 2,
+  "breedingAge": 3,
+  "maxNumber": 5,
+  "breedingProbability": 0.5,
+  "weight": 500,
+  "kilogramToSaturation": 80,
+  "valueBreed": 3,
+  "eatingMap": {
+    "\uD83D\uDC07": 80,
+    "\uD83D\uDC01": 90,
+    "\uD83E\uDD8C": 80,
+    "\uD83D\uDC0D": 80,
+    "\uD83D\uDC10": 70,
+    "\uD83D\uDC11": 70
+  }
+}

@@ -2,16 +2,10 @@ package com.island;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.island.BaseEntity.BaseEntity;
-import com.island.BaseEntity.Predators.Wolf;
 import com.island.frame.AnimalGrid;
 import com.island.frame.Cell;
 
 import java.io.IOException;
-
-import static com.island.Constants.WIDTH;
-import static java.awt.image.ImageObserver.HEIGHT;
-
-//import static com.island.BaseEntityPopulation.startAnimals;
 
 
 public class Main {
@@ -19,27 +13,31 @@ public class Main {
 
         BaseEntityPopulation population = new BaseEntityPopulation();
         AnimalFactory animalFactory = new AnimalFactory(new ObjectMapper(), population);
-        Cell cell = new Cell(population);
+
         AnimalGrid animalGrid = new AnimalGrid(population);
         Cell[][] table = animalGrid.getTable();
         animalGrid.populateTable(animalFactory, population);
 
-        animalGrid.printGrid(population);
-        animalGrid.printAllGrid(population);
+
+//        animalGrid.printAllGrid(population);
         Actions actions = new Actions(table);
-
-        for (int i = 0; i < 10; i++) {
-
-            actions.move(table);
-
-            animalGrid.printGrid(population);
-            animalGrid.printAllGrid(population);
-            for (BaseEntity entity : population.getBaseEntity()) {
-                entity.increaseAge();
-            }
+        System.out.println("Первый запуск животных");
+        animalGrid.printGrid(population);
+        System.out.println();
+        System.out.println("*********************");
+        for (int i = 0; i < 20; i++) {
+            actions.move(table,population);
+            actions.eating(population);
             actions.performBreeding(animalFactory, population);
+            actions.runningTime(population);
             animalGrid.printGrid(population);
-            animalGrid.printAllGrid(population);
+            System.out.println();
+            System.out.println("*********************");
+//            animalGrid.printAllGrid(population); //будет выводить в консоль в виде таблицы
+
+//            animalGrid.printGrid(population);
+//            animalGrid.printAllGrid(population);
+
         }
 
 

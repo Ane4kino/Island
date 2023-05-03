@@ -3,11 +3,10 @@ import com.island.BaseEntity.BaseEntity;
 
 import java.util.Map;
 
-public class Fox extends BaseEntity {
-    public Fox() {
+public class Boa extends BaseEntity {
+    public Boa() {
     }
-
-    public Fox(String name, String icon, int age, int maxAge, int movementRange, int breedingAge,
+    public Boa(String name, String icon, int age, int maxAge, int movementRange, int breedingAge,
                int maxNumber, double breedingProbability, double weight, double kilogramToSaturation,
                boolean isAlive, Map<String, Integer> eatingMap,int energyLevel) {
         super(name, icon, age, maxAge, movementRange, breedingAge, maxNumber, breedingProbability,
